@@ -1,0 +1,214 @@
+---
+import aboutBg from '../../assets/the-company.jpg';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const objectives = [
+  'Establish a credible and professionally managed digital financial services institution.',
+  'Build regulated digital asset investment and capital-raising businesses.',
+  'Promote the tokenisation of real-world assets and eligible investment instruments.',
+  'Facilitate access to alternative sources of capital for businesses and project developers.',
+  'Develop innovative investment products that connect traditional financial markets with blockchain technology.',
+  "Attract institutional and international participation in Africa's emerging digital asset ecosystem.",
+  'Build sustainable revenue streams through technology-driven financial services.',
+];
+---
+
+<Layout title="About Us | JohnBrain">
+  <Navbar />
+
+  <main
+    class="w-full min-h-screen text-white font-sans mt-12 bg-cover bg-center bg-fixed bg-no-repeat"
+    style={`background-image: url(${aboutBg.src});`}
+  >
+    <!-- Light 25% tint so your background image stays vivid while white text remains sharp -->
+    <div class="w-full min-h-screen bg-black/25">
+      <!-- 1. About Us Overview Section -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16">
+        <div class="bg-black/45 backdrop-blur-xs border border-white/20 rounded-2xl p-8 sm:p-12">
+          <p class="text-[#B7F000] font-bold text-sm uppercase tracking-widest mb-6 drop-shadow">
+            About Us
+          </p>
+
+          <div class="space-y-6 text-xl md:text-2xl font-normal text-white leading-relaxed">
+            <p>
+              JOHNBRAIN is a digital financial services and investment group
+              focused on advancing participation in the global digital economy
+              through virtual asset services, digital investments, blockchain
+              technology and innovative financial solutions.
+            </p>
+            <p>
+              Through its specialised subsidiaries, the Group provides services
+              spanning digital asset investment and management, virtual asset
+              trading, digital capital raising, real-world asset tokenisation,
+              digital securities distribution, investment advisory and other
+              technology-enabled financial services.
+            </p>
+            <p>
+              JOHNBRAIN is driven by innovation, regulatory compliance, investor
+              protection, transparency and sound corporate governance, with a
+              strategic focus on bridging traditional finance and the emerging
+              digital economy.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- 2. Strategic Objectives Section -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div class="bg-black/45 backdrop-blur-xs border border-white/20 rounded-2xl p-8 sm:p-12">
+          <div class="max-w-3xl mb-10">
+            <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3 drop-shadow">
+              Corporate Direction
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4 drop-shadow">
+              Strategic Objectives
+            </h2>
+            <p class="text-slate-200 text-lg leading-relaxed">
+              The Group's principal strategic objectives are to:
+            </p>
+          </div>
+
+          <!-- 7 Strategic Objectives Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {objectives.map((item, index) => (
+              <div
+                class:list={[
+                  'bg-black/48 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-6 transition-colors duration-300 flex items-start gap-4',
+                  index === objectives.length - 1 && 'md:col-span-2',
+                ]}
+              >
+                <span class="text-[#B7F000] font-bold text-lg shrink-0">
+                  {String(index + 1).padStart(2, '0')}.
+                </span>
+                <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Core Values Section -->
+      <section class="w-full bg-black/45 text-slate-300 py-24 font-sans border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Section Header -->
+          <div class="max-w-3xl mb-14">
+            <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">
+              Our Principles
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+              Core Values
+            </h2>
+            <p class="text-slate-300 text-lg leading-relaxed">
+              Our core values define our corporate culture, guide our strategic
+              decisions and shape our commitment to delivering excellence in the
+              global digital financial services ecosystem.
+            </p>
+          </div>
+          <!-- 7 Core Values Responsive Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 1. Integrity -->
+            <div class="bg-black/48 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+              <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+                01.
+              </span>
+              <h3 class="text-xl font-bold text-white mb-2.5">Integrity</h3>
+              <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                Upholding the highest standards of honesty, transparency,
+                accountability and ethical conduct in all our business dealings.
+              </p>
+            </div>
+
+            <!-- 2. Innovation -->
+            <div class="bg-black/48 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+              <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+                02.
+              </span>
+              <h3 class="text-xl font-bold text-white mb-2.5">Innovation</h3>
+              <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                Embracing emerging technologies, creative thinking and
+                continuous improvement to deliver forward-looking digital
+                financial solutions.
+              </p>
+            </div>
+
+            <!-- 3. Excellence -->
+            <div class="bg-black/48 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+              <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+                03.
+              </span>
+              <h3 class="text-xl font-bold text-white mb-2.5">Excellence</h3>
+              <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                Pursuing the highest standards of professionalism, operational
+                efficiency and service delivery.
+              </p>
+            </div>
+
+            <!-- 4. Trust & Security -->
+            <div class="bg-black/48 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+              <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+                04.
+              </span>
+              <h3 class="text-xl font-bold text-white mb-2.5">
+                Trust &amp; Security
+              </h3>
+              <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                Building lasting confidence through robust security frameworks,
+                responsible asset management and the protection of clients'
+                interests.
+              </p>
+            </div>
+
+            <!-- 5. Regulatory Commitment -->
+            <div class="bg-black/48 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+              <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+                05.
+              </span>
+              <h3 class="text-xl font-bold text-white mb-2.5">
+                Regulatory Commitment
+              </h3>
+              <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                Maintaining a strong culture of compliance, sound governance and
+                adherence to applicable regulatory standards across our
+                operations.
+              </p>
+            </div>
+
+            <!-- 6. Customer-Centricity -->
+            <div class="bg-black/48 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+              <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+                06.
+              </span>
+              <h3 class="text-xl font-bold text-white mb-2.5">
+                Customer-Centricity
+              </h3>
+              <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                Placing clients and stakeholders at the centre of our business
+                by delivering accessible, reliable and value-driven financial
+                solutions.
+              </p>
+            </div>
+
+            <!-- 7. Sustainable Growth -->
+            <div class="lg:col-span-3 bg-black/48 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-1">
+                  07.
+                </span>
+                <h3 class="text-xl font-bold text-white">Sustainable Growth</h3>
+              </div>
+              <p class="text-slate-400 text-sm sm:text-base leading-relaxed md:max-w-3xl">
+                Creating enduring value through responsible business practices,
+                strategic partnerships and sustainable wealth creation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

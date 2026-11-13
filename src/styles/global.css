@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* Custom Global Scrollbar Style */
+html {
+  scroll-behavior: smooth;
+  /* For Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #334155 #020617; /* thumb color | track background */
+}
+
+/* For Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* 1. Scrollbar Track (Changes background away from standard white) */
+::-webkit-scrollbar-track {
+  background: #020617; /* Deep slate-950 background matching your layout dark theme */
+}
+
+/* 2. Scrollbar Handle/Thumb */
+::-webkit-scrollbar-thumb {
+  background: #334155; /* Mid-tone slate-700 drag bar handle */
+  border-radius: 9999px;
+  border: 2px solid #020617; /* Creates padding space around the handle */
+}
+
+/* Hover style for the scroll bar handle */
+::-webkit-scrollbar-thumb:hover {
+  background: #B7F000; /* Turns into your signature brand green when hovered */
+}

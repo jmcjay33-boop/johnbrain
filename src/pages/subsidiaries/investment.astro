@@ -1,0 +1,60 @@
+---
+import heroBg from "../../assets/investment.jpg";
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+const capabilities = [
+  "Digital asset investment management and portfolio administration.",
+  "Trading in approved cryptocurrencies and other eligible digital assets.",
+  "Digital asset investment advisory and portfolio structuring.",
+  "Digital wealth management for individuals, corporate organisations and institutional investors.",
+  "Research, valuation and investment analysis of digital assets.",
+  "Development of digital asset investment strategies and structured investment products.",
+  "Investment risk assessment, portfolio monitoring and performance reporting.",
+  "Facilitation of access to eligible digital investment opportunities.",
+];
+---
+
+<Layout title="JohnBrain Investment Limited">
+  <Navbar />
+
+  <main
+    class="w-full min-h-screen text-white font-sans mt-12 bg-cover bg-center bg-fixed bg-no-repeat"
+    style={`background-image: url(${heroBg.src});`}
+  >
+    <!-- Light 25% tint so your background image stays vivid while white text remains sharp -->
+    <div class="w-full min-h-screen bg-black/25">
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-24">
+        <!-- Top Header & Intro Sentence sitting directly on the image -->
+        <div class="pb-6 mb-8 border-b border-white/25">
+          <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3 drop-shadow">
+            JOHNBRAIN INVESTMENT LIMITED
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight max-w-4xl mb-4 drop-shadow">
+            Digital Asset Investment, Trading and Wealth Management
+          </h1>
+          <p class="text-lg sm:text-xl text-white font-normal leading-relaxed max-w-4xl drop-shadow">
+            This subsidiary focuses on digital asset investment activities, investment management, trading and advisory services.
+          </p>
+        </div>
+
+        <!-- Listed Items (01 to 08 on frosted see-through cards) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {capabilities.map((item, index) => (
+            <div class="bg-black/45 backdrop-blur-xs border border-white/20 hover:border-[#B7F000] rounded-2xl p-6 sm:p-8 transition-colors duration-300 flex items-start gap-5">
+              <span class="text-[#B7F000] font-bold text-lg sm:text-xl shrink-0">
+                {String(index + 1).padStart(2, "0")}.
+              </span>
+              <p class="text-white text-base sm:text-lg font-normal leading-relaxed">
+                {item}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,111 @@
+---
+import propertiesbg from "../../assets/real-estate.jpg";
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+const capabilities = [
+  {
+    title: "Digital Real Estate Marketplace:",
+    description:
+      "Development of an online platform for property listings, property discovery, buying, selling and leasing of residential, commercial and industrial properties.",
+  },
+  {
+    title: "Digital Property Investment:",
+    description:
+      "Facilitating access to real estate investment opportunities for individuals, corporate organisations and institutional investors.",
+  },
+  {
+    title: "Property Tokenisation:",
+    description:
+      "Exploring the digital representation of eligible real estate ownership interests, investment rights or economic interests through blockchain technology, subject to applicable securities and property laws.",
+  },
+  {
+    title: "Real Estate Crowdfunding:",
+    description:
+      "Facilitating collective investment in eligible property development projects through properly structured and regulated investment arrangements.",
+  },
+  {
+    title: "Digital Property Transactions:",
+    description:
+      "Providing technology-enabled platforms for property enquiries, negotiations, transaction documentation, payment coordination and transaction tracking.",
+  },
+  {
+    title: "Property Management:",
+    description:
+      "Providing digital solutions for property administration, tenancy management, rental collection, maintenance coordination and investment reporting.",
+  },
+  {
+    title: "Real Estate Data and Analytics:",
+    description:
+      "Providing property valuation support, market intelligence, investment analysis, property performance monitoring and location-based research.",
+  },
+  {
+    title: "International Property Investment:",
+    description:
+      "Facilitating access to eligible domestic and international real estate investment opportunities through technology-enabled platforms and appropriate professional partnerships.",
+  },
+  {
+    title: "Smart Property Solutions:",
+    description:
+      "Exploring the application of smart contracts, digital identity, electronic documentation and blockchain technology to improve property transaction processes.",
+  },
+  {
+    title: "Real Estate Development Partnerships:",
+    description:
+      "Collaborating with property developers, construction companies, estate surveyors and valuers, legal practitioners, financial institutions and other industry participants.",
+  },
+];
+---
+
+<Layout title="JohnBrain Properties Limited">
+  <Navbar />
+
+  <main
+    class="w-full min-h-screen text-white font-sans mt-12 bg-cover bg-center bg-fixed bg-no-repeat"
+    style={`background-image: url(${propertiesbg.src});`}
+  >
+    <!-- Light 25% tint so your background image stays vivid while white text remains sharp -->
+    <div class="w-full min-h-screen bg-black/25">
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-24">
+        <!-- Top Header & Intro Paragraphs sitting directly on the image -->
+        <div class="pb-6 mb-8 border-b border-white/25">
+          <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest
+           mb-3 drop-shadow">
+            JOHNBRAIN PROPERTIES LIMITED
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white
+          tracking-tight leading-tight max-w-4xl mb-4 drop-shadow ">
+            Digital Real Estate and Property Technology
+          </h1>
+          <p class="text-lg sm:text-xl  font-normal leading-relaxed max-w-4xl
+           mb-3 drop-shadow ">
+            This subsidiary leverages digital technology, online platforms, data analytics and blockchain-enabled solutions to facilitate access to real estate transactions and investment opportunities.
+          </p>
+          <p class="text-lg sm:text-xl text-white font-normal leading-relaxed max-w-4xl drop-shadow">
+            Its objective is to bridge the gap between traditional property markets and the emerging digital economy by making property discovery, acquisition, investment, ownership administration and property management more accessible, transparent and efficient.
+          </p>
+        </div>
+
+        <!-- Listed Items (01 to 10 with Bold Titles on frosted see-through cards) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {capabilities.map((item, index) => (
+            <div class="bg-black/45 backdrop-blur-xs border border-white/20 
+            hover:border-[#B7F000] rounded-2xl p-6 sm:p-8 transition-colors duration-300 flex
+             items-start gap-5">
+              <span class="text-[#B7F000] font-bold text-lg sm:text-xl shrink-0">
+                {String(index + 1).padStart(2, "0")}.
+              </span>
+              <p class="text-white text-base sm:text-lg font-normal leading-relaxed">
+                <strong class="font-semibold text-white">{item.title}</strong>{" "}
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

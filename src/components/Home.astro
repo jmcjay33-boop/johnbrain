@@ -1,0 +1,479 @@
+---
+// 1. ALL imports and JavaScript arrays go together inside this SINGLE block at the very top
+import { Image } from 'astro:assets';
+import homebg from '../assets/homebg.jpg';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  'Digital Asset Investment & Management',
+  'Virtual Asset Trading',
+  'Real-World Asset Tokenisation',
+  'Digital Capital Raising',
+  'Digital Real Estate Marketplace',
+  'Digital Securities Distribution',
+  'Digital Wealth Management',
+  'Smart Property & PropTech Solutions',
+  'Investment Advisory',
+];
+
+const tickerItems = [...services, ...services, ...services];
+---
+
+<!-- 2. Hero Background Image Section -->
+<!-- 1. Modified Section 1 with Dynamic Fade Animations -->
+<section class="relative w-full h-[90vh] overflow-hidden  mt-12">
+ <div class="absolute inset-0 w-full h-full z-0 ">
+  <Image
+    src={homebg}
+    alt="Global Financial Executives Boardroom"
+    class="w-full h-full object-cover object-center opacity-90"
+    loading="eager"
+  />
+  <!-- Balanced mid-tone overlay: keeps image vivid while keeping text readable -->
+  <div class="absolute inset-0 "></div>
+</div>
+
+
+  <!-- FIXED LAYER: Content area shifted to the top ('items-start' + 'pt-24' pushes text up away from center) -->
+  <!-- UPDATED LINE: Changed pt-24 to pt-8 to pull everything significantly higher up -->
+  <div class="relative max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-start pt-8 z-10">
+    <!-- Added id="hero-content" and transition utility so Javascript can fade it out cleanly -->
+    <div
+      id="hero-content"
+      class="max-w-3xl space-y-8 transition-opacity duration-300 ease-out"
+    >
+      <!-- Headline Text Layer -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight drop-shadow-md">
+        Unlocking Opportunities in the Digital Asset Economy.
+      </h1>
+
+      <!-- Partner With Us Button Block -->
+      <div class="pt-2">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#B7F000] text-slate-950 font-bold text-lg hover:bg-white transition-all shadow-xl cursor-none"
+          data-cursor="selectable"
+        >
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- LIGHTWEIGHT SCRIPT LAYER: Paste this script to fade text immediately upon scrolling -->
+
+<!-- 3. About Us Section directly underneath -->
+<section class="w-full bg-[#536124] text-white py-20 font-sans overflow-hidden">
+  <!-- Moving Marquee Ticker Section -->
+  <div class="w-full bg-slate-950/50 border-y border-slate-800/80 py-8 relative flex overflow-x-hidden">
+    <div class="absolute inset-y-0 left-0 w-16 bg-linear-to-r from-slate-900 to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute inset-y-0 right-0 w-16 bg-linear-to-l from-slate-900 to-transparent z-10 pointer-events-none"></div>
+
+    <div class="flex animate-marquee whitespace-nowrap gap-12 items-center">
+      {tickerItems.map((item) => (
+        <div class="flex items-center gap-12">
+          <span class="text-xl md:text-3xl font-bold tracking-tight text-slate-400 hover:text-[#B7F000] transition-colors duration-300">
+            {item}
+          </span>
+          <span class="text-[#B7F000] text-xl md:text-2xl font-bold">•</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<!-- 5. Our Purpose, Mission & Vision Layout Section -->
+<section class="w-full bg-slate-900 text-slate-300 py-24 font-sans border-t border-slate-800/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+    <!-- LEFT SIDE: Our Purpose Paragraph Text (Takes 7 of 12 columns on desktop) -->
+    <div class="lg:col-span-7 space-y-6">
+      <p class="text-[#B7F000] font-bold text-sm uppercase tracking-widest">
+        Our Purpose
+      </p>
+      <h3 class="text-2xl md:text-3xl font-semibold text-slate-100 leading-snug">
+        Democratising access to the global digital economy through trusted,
+        technology-enabled financial solutions.
+      </h3>
+      <p class="text-slate-300 text-lg leading-relaxed">
+        JOHNBRAIN exists to unlock inclusive, institutional-grade investment and
+        capital-raising opportunities across Africa and global markets. By
+        uniting digital asset management, real-world asset tokenisation, and
+        smart real estate technology, we empower individuals, businesses, and
+        institutional investors to participate confidently in the future of
+        finance.
+      </p>
+      <p class="text-slate-400 text-lg leading-relaxed">
+        Guided by strict regulatory compliance, transparency, and sound
+        corporate governance, we eliminate traditional barriers to high-value
+        markets—making wealth creation, property acquisition, and digital
+        capital formation faster, safer, and more accessible for everyone.
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE: Mission & Vision Black Box Container (Takes 5 of 12 columns on desktop) -->
+    <div class="lg:col-span-5 bg-slate-950 p-8 md:p-10 rounded-2xl border border-slate-800 shadow-2xl space-y-10">
+      <!-- MISSION BLOCK -->
+      <div class="flex items-start gap-5">
+        <!-- Target Icon for Mission -->
+        <div class="text-[#B7F000] shrink-0">
+          <svg
+            class="w-10 h-10 md:w-12 md:h-12"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 11-4 0 2 2 0 014 0z"
+            />
+          </svg>
+        </div>
+        <div class="space-y-2.5">
+          <h4 class="text-[#B7F000] font-bold text-xs uppercase tracking-widest">
+            Our Mission
+          </h4>
+          <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+            To bridge traditional finance and the evolving digital economy
+            through innovative financial technologies, digital investment
+            solutions and blockchain-enabled platforms that facilitate capital
+            formation, expand investment opportunities, promote financial
+            inclusion and foster sustainable wealth creation.
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800/80"></div>
+
+      <!-- VISION BLOCK -->
+      <div class="flex items-start gap-5">
+        <!-- Eye Icon for Vision -->
+        <div class="text-[#B7F000] shrink-0">
+          <svg
+            class="w-10 h-10 md:w-12 md:h-12"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+        </div>
+        <div class="space-y-2.5">
+          <h4 class="text-[#B7F000] font-bold text-xs uppercase tracking-widest">
+            Our Vision
+          </h4>
+          <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+            To become a leading global digital financial services institution,
+            recognised for innovation, integrity and excellence in delivering
+            secure, compliant and forward-looking solutions across the virtual
+            asset and digital investment ecosystem.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Core Values Section -->
+<section class="w-full bg-slate-950 text-slate-300 py-24 font-sans border-t border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-14">
+      <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">
+        Our Principles
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+        Core Values
+      </h2>
+      <p class="text-slate-300 text-lg leading-relaxed">
+        Our core values define our corporate culture, guide our strategic decisions and shape our commitment to delivering excellence in the global digital financial services ecosystem.
+      </p>
+    </div>
+
+    <!-- 7 Core Values Responsive Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 1. Integrity -->
+      <div class="bg-slate-900/90 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+        <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+          01.
+        </span>
+        <h3 class="text-xl font-bold text-white mb-2.5">
+          Integrity
+        </h3>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Upholding the highest standards of honesty, transparency, accountability and ethical conduct in all our business dealings.
+        </p>
+      </div>
+
+      <!-- 2. Innovation -->
+      <div class="bg-slate-900/90 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+        <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+          02.
+        </span>
+        <h3 class="text-xl font-bold text-white mb-2.5">
+          Innovation
+        </h3>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Embracing emerging technologies, creative thinking and continuous improvement to deliver forward-looking digital financial solutions.
+        </p>
+      </div>
+
+      <!-- 3. Excellence -->
+      <div class="bg-slate-900/90 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+        <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+          03.
+        </span>
+        <h3 class="text-xl font-bold text-white mb-2.5">
+          Excellence
+        </h3>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Pursuing the highest standards of professionalism, operational efficiency and service delivery.
+        </p>
+      </div>
+
+      <!-- 4. Trust & Security -->
+      <div class="bg-slate-900/90 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+        <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+          04.
+        </span>
+        <h3 class="text-xl font-bold text-white mb-2.5">
+          Trust &amp; Security
+        </h3>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Building lasting confidence through robust security frameworks, responsible asset management and the protection of clients' interests.
+        </p>
+      </div>
+
+      <!-- 5. Regulatory Commitment -->
+      <div class="bg-slate-900/90 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+        <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+          05.
+        </span>
+        <h3 class="text-xl font-bold text-white mb-2.5">
+          Regulatory Commitment
+        </h3>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Maintaining a strong culture of compliance, sound governance and adherence to applicable regulatory standards across our operations.
+        </p>
+      </div>
+
+      <!-- 6. Customer-Centricity -->
+      <div class="bg-slate-900/90 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300">
+        <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-2">
+          06.
+        </span>
+        <h3 class="text-xl font-bold text-white mb-2.5">
+          Customer-Centricity
+        </h3>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Placing clients and stakeholders at the centre of our business by delivering accessible, reliable and value-driven financial solutions.
+        </p>
+      </div>
+
+      <!-- 7. Sustainable Growth (Spans full width on desktop so the 7th item balances cleanly) -->
+      <div class="lg:col-span-3 bg-slate-900/90 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 transition-colors duration-300 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <span class="text-[#B7F000] font-bold text-sm tracking-wider block mb-1">
+            07.
+          </span>
+          <h3 class="text-xl font-bold text-white">
+            Sustainable Growth
+          </h3>
+        </div>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed md:max-w-3xl">
+          Creating enduring value through responsible business practices, strategic partnerships and sustainable wealth creation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="w-full bg-slate-950 text-slate-300 py-24 font-sans border-t border-slate-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-14">
+      <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">
+        OUR SUBSIDIARIES
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+        Subsidiaries
+      </h2>
+      <p class="text-lg text-slate-300 leading-relaxed">
+        The Group operates through three principal subsidiaries:
+      </p>
+    </div>
+
+    <!-- Full-Width 3-Column Grid for the Three Subsidiaries -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- CARD 1: JOHNBRAIN INVESTMENT LIMITED -->
+      <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between hover:border-[#B7F000]/50 transition-all duration-300">
+        <div class="space-y-4">
+          <!-- Investment / Growth Chart Icon -->
+          <div class="text-[#B7F000] w-10 h-10">
+            <svg
+              class="w-full h-full"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.94"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white tracking-tight">
+            JOHNBRAIN INVESTMENT LIMITED
+          </h3>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            Focused on digital asset investment, trading, wealth management,
+            portfolio administration and investment advisory services.
+          </p>
+        </div>
+        <div class="pt-8">
+          <a
+            href="/subsidiaries/investment"
+            class="text-xs font-bold text-[#B7F000] hover:text-white transition-colors tracking-wider uppercase inline-flex items-center gap-1.5"
+            data-cursor="selectable"
+          >
+            Learn More <span class="text-base">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 2: JOHNBRAIN TOKENS LIMITED -->
+      <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between hover:border-[#B7F000]/50 transition-all duration-300">
+        <div class="space-y-4">
+          <!-- Tokenisation / Digital Cube Icon -->
+          <div class="text-[#B7F000] w-10 h-10">
+            <svg
+              class="w-full h-full"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white tracking-tight">
+            JOHNBRAIN TOKENS LIMITED
+          </h3>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            Focused on digital asset issuance, tokenisation, digital investment
+            offerings, fundraising platforms and the distribution of eligible
+            digital investment instruments.
+          </p>
+        </div>
+        <div class="pt-8">
+          <a
+            href="/subsidiaries/tokens"
+            class="text-xs font-bold text-[#B7F000] hover:text-white transition-colors tracking-wider uppercase inline-flex items-center gap-1.5"
+            data-cursor="selectable"
+          >
+            Learn More <span class="text-base">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 3: JOHNBRAIN PROPERTIES LIMITED -->
+      <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col justify-between hover:border-[#B7F000]/50 transition-all duration-300">
+        <div class="space-y-4">
+          <!-- Real Estate / Building Icon -->
+          <div class="text-[#B7F000] w-10 h-10">
+            <svg
+              class="w-full h-full"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white tracking-tight">
+            JOHNBRAIN PROPERTIES LIMITED
+          </h3>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            Focused on technology-enabled real estate transactions, digital
+            property marketplaces, property investment facilitation, property
+            management and blockchain-enabled real estate solutions.
+          </p>
+        </div>
+        <div class="pt-8">
+          <a
+            href="/subsidiaries/properties"
+            class="text-xs font-bold text-[#B7F000] hover:text-white transition-colors tracking-wider uppercase inline-flex items-center gap-1.5"
+            data-cursor="selectable"
+          >
+            Learn More <span class="text-base">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<Footer />
+
+<style>
+  /* Adjusted values to reverse the direction from left to right */
+  @keyframes marquee {
+    0% {
+      transform: translateX(-33.33%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+</style>
+
+<script>
+  const heroContent = document.getElementById('hero-content');
+
+  window.addEventListener('scroll', () => {
+    if (!heroContent) return;
+
+    const scrollPosition = window.scrollY;
+
+    // Calculates a fade factor. By 250px of scroll travel, the text becomes completely transparent (opacity: 0)
+    let opacityFactor = 1 - scrollPosition / 250;
+
+    if (opacityFactor < 0) {
+      opacityFactor = 0;
+    }
+
+    heroContent.style.opacity = opacityFactor.toString();
+  });
+</script>

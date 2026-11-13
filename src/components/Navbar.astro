@@ -1,0 +1,617 @@
+---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/jb-logo.svg';
+---
+
+<!-- src/components/Navbar.astro -->
+<header
+  id="main-navbar"
+  class="w-full sticky top-0 pt-1.5 z-50 font-sans transition-colors duration-300 ease-in-out bg-transparent"
+>
+  <div class="max-w-7xl md:mx-11 px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <!-- 1. Left Section: Logo -->
+    <a href="/" class="logo-link transition-colors cursor-pointer shrink-0">
+      <Image
+        id="navbar-logo"
+        src={logoImage}
+        alt="Company Name Logo"
+        loading="eager"
+        data-cursor="selectable"
+      />
+    </a>
+
+    <!-- 2. Middle Section: Centered Desktop Links -->
+    <nav class="hidden md:flex items-center justify-center gap-8 font-semibold text-[17px]">
+      <a
+        href="/"
+        class="hover:text-[#B7F000] transition-colors cursor-pointer"
+        data-cursor="selectable"
+      >
+        Home
+      </a>
+
+      <!-- About Us Dropdown -->
+      <div class="relative group py-2">
+        <button
+          class="hover:text-[#B7F000] transition-colors flex items-center gap-1 cursor-pointer"
+          data-cursor="selectable"
+        >
+          <a
+            href="/services/services"
+            class="hover:text-[#B7F000] transition-colors cursor-pointer"
+            data-cursor="selectable"
+          >
+            About Us
+          </a>
+          <svg
+            class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform duration-1000"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Desktop Dropdown Menu (Vertical List) -->
+        <div
+          class="absolute left-0 mt-2 w-112.5 bg-[#36430b] shadow-md opacity-0
+        invisible group-hover:opacity-100 group-hover:visible transition-all duration-1000 z-50
+        font-semibold flex px-4 py-2 flex-col gap-1"
+        >
+          <a
+            href="/about/company"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-['']
+              hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            The Company
+          </a>
+
+          <a
+            href="/services/compliance"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            Board of Directors
+          </a>
+
+          <a
+            href="/services/compliance"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            Management Team
+          </a>
+
+          <a
+            href="/services/ma"
+            class="px-3 py-2 rounded-lg hover:transition-all hover:ease-in text-slate-300
+             before:content-[''] hover:before:content-['——_'] before:transition-all
+             hover:px-14 hover:text-[#B7F000] cursor-pointer"
+            data-cursor="selectable"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+      <!-- Subsidiaries Dropdown -->
+      <div class="relative group py-2">
+        <button
+          class="hover:text-[#B7F000] transition-colors flex items-center gap-1 cursor-pointer"
+          data-cursor="selectable"
+        >
+          <a
+            href="/subsidiaries/investment"
+            class="hover:text-[#B7F000] transition-colors cursor-pointer"
+            data-cursor="selectable"
+          >
+            Subsidiaries
+          </a>
+
+          <svg
+            class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform duration-1000"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Desktop Dropdown Menu (Vertical List) -->
+        <div
+          class="absolute left-0 mt-2 w-112.5 bg-[#36430b] shadow-md opacity-0
+        invisible group-hover:opacity-100 group-hover:visible transition-all duration-1000 z-50
+        font-semibold flex px-4 py-2 flex-col gap-1"
+        >
+          <span class="text-white font-mono">
+            The Group operates through three principal subsidiaries:
+          </span>
+          <a
+            href="/subsidiaries/investment"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-['']
+              hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            <span class="text-[#B7F000] underline font-mono font-black">
+              JOHNBRAIN INVESTMENT LIMITED:
+            </span>{' '}
+            Focused on digital asset investment, trading, wealth management,
+            portfolio administration and investment advisory services.
+          </a>
+
+          <a
+            href="/subsidiaries/tokens"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            <span class="text-[#B7F000] underline font-mono font-black">
+              JOHNBRAIN TOKENS LIMITED:
+            </span>{' '}
+            Focused on digital asset issuance, tokenisation, digital investment
+            offerings, fundraising platforms and the distribution of eligible
+            digital investment instruments.
+          </a>
+
+          <a
+            href="/subsidiaries/properties"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            <span class="text-[#B7F000] font-mono underline font-black">
+              JOHNBRAIN PROPERTIES LIMITED:
+            </span>{' '}
+            Focused on technology-enabled real estate transactions, digital
+            property marketplaces, property investment facilitation, property
+            management and blockchain-enabled real estate solutions.
+          </a>
+        </div>
+      </div>
+
+      <!-- New Core Service Link -->
+
+      <div class="relative group py-2">
+        <button
+          class="hover:text-[#B7F000] transition-colors flex items-center gap-1 cursor-pointer"
+          data-cursor="selectable"
+        >
+          <a
+            href="/subsidiaries/investment"
+            class="hover:text-[#B7F000] transition-colors cursor-pointer"
+            data-cursor="selectable"
+          >
+            Core Services
+          </a>
+
+          <svg
+            class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform duration-1000"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Desktop Dropdown Menu (Vertical List) -->
+        <div
+          class="absolute left-0 mt-2 w-112.5 bg-[#36430b] shadow-md opacity-0
+        invisible group-hover:opacity-100 group-hover:visible transition-all duration-1000 z-50
+        font-semibold flex px-4 py-2 flex-col gap-1"
+        >
+          <a
+            href="/services/vasset"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-['']
+              hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            Virtual Asset Exchange & Trading Services
+          </a>
+
+          <a
+            href="/services/acustody"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            Virtual Asset Custody & Wallet Services
+          </a>
+
+          <a
+            href="/services/ainsurance"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            Digital Asset Issuance & Tokenisation Services
+          </a>
+          <a
+            href="/services/atransfer"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            Virtual Asset Transfer & Payment Services
+          </a>
+          <a
+            href="/services/awealth"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            Advisory, Wealth & Portfolio Services Linked to Digital Assets
+          </a>
+          <a
+            href="/services/properties"
+            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
+             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            data-cursor="selectable"
+          >
+            Properties businesses
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 3. Right Section: Client Access (Desktop) + Mobile Hamburger -->
+    <div class="flex items-center gap-4 shrink-0">
+      <div class="hidden md:flex items-center gap-4">
+        <div class="h-6 w-px bg-slate-200"></div>
+        <a
+          href="/clientele"
+          class="inline-flex items-center gap-2 bg-slate-900
+           hover:bg-[#B7F000] text-white hover:text-slate-950 border border-slate-800 hover:border-[#B7F000] font-semibold text-sm px-5 py-2.5 rounded-full shadow-sm transition-all duration-300 cursor-pointer"
+          data-cursor="selectable"
+        >
+          <span>Client Access</span>
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Icon Button -->
+      <button
+        id="menu-toggle-btn"
+        class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all cursor-pointer"
+        data-cursor="selectable"
+        aria-label="Toggle Navigation Menu"
+      >
+        <svg
+          id="hamburger-icon"
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+        <svg
+          id="close-icon"
+          class="w-6 h-6 hidden"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- 4. Mobile Menu Drawer Panel -->
+  <div
+    id="mobile-menu-panel"
+    class="hidden md:hidden bg-slate-800 absolute top-full left-0 w-full max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain z-40 px-4 py-4 pb-8 space-y-2 shadow-md"
+  >
+    <a
+      href="/"
+      class="block px-4 py-2.5 rounded-xl text-base font-bold text-white
+       hover:bg-slate-50 hover:text-[#B7F000]"
+    >
+      Home
+    </a>
+
+    <!-- About Us Dropdown -->
+    <div class="space-y-1 mobile-submenu-group">
+      <button
+        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5
+       rounded-xl text-base font-bold text-white hover:bg-slate-100 hover:text-[#B7F000]
+        cursor-pointer"
+      >
+        <span>About Us</span>
+        <svg
+          class="mobile-submenu-arrow w-4 h-4 text-slate-400 transition-transform duration-150"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </button>
+
+      <div class="mobile-submenu-items hidden rounded-xl pl-4 border-l-2 border-slate-200 space-y-1 py-1 flex-col">
+        <a
+          href="/about/company"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          The Company
+        </a>
+        <a
+          href="/services/compliance"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          Board of Directors
+        </a>
+        <a
+          href="/services/compliance"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          Management Team
+        </a>
+        <a
+          href="/services/ma"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+
+    <!-- Subsidiaries Dropdown -->
+    <div class="space-y-1 mobile-submenu-group">
+      <button
+        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5
+       rounded-xl text-base font-bold text-white hover:bg-slate-100 hover:text-[#B7F000] cursor-pointer"
+      >
+        <span>Subsidiaries</span>
+        <svg
+          class="mobile-submenu-arrow w-4 h-4 text-slate-400 transition-transform duration-150"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </button>
+
+      <div class="mobile-submenu-items hidden rounded-xl pl-4 border-l-2 border-slate-200 space-y-1 py-1 flex-col">
+        <a
+          href="/subsidiaries/investment"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white
+           hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          JohnBrain Investment Limited
+        </a>
+        <a
+          href="/subsidiaries/tokens"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          JohnBrain Tokens Limited
+        </a>
+        <a
+          href="/subsidiaries/properties"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          JohnBrain Properties Limited
+        </a>
+      </div>
+    </div>
+    <!-- core services drop down -->
+    <!-- Subsidiaries Dropdown -->
+    <div class="space-y-1 mobile-submenu-group">
+      <button
+        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5
+       rounded-xl text-base font-bold text-white hover:bg-slate-100 hover:text-[#B7F000] cursor-pointer"
+      >
+        <span>Core Services</span>
+        <svg
+          class="mobile-submenu-arrow w-4 h-4 text-slate-400 transition-transform duration-150"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </button>
+
+      <div class="mobile-submenu-items hidden rounded-xl pl-4 border-l-2 border-slate-200 space-y-1 py-1 flex-col">
+        <a
+          href="/services/vasset"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white
+           hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          Virtual Asset Exchange & Trading Services
+        </a>
+        <a
+          href="/services/acustody"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          Virtual Asset Custody & Wallet Services
+        </a>
+        <a
+          href="/services/ainsurance"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          Digital Asset Issuance & Tokenisation Services
+        </a>
+        <a
+          href="/services/atransfer"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          Virtual Asset Transfer & Payment Services
+        </a>
+        <a
+          href="/services/awealth"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          Advisory, Wealth & Portfolio Services Linked to Digital Assets
+        </a>
+        <a
+          href="/services/properties"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+        >
+          Properties businesses
+        </a>
+      </div>
+    </div>
+
+    <a
+      href="/clientele"
+      class="flex items-center justify-center gap-2 w-full mt-14 mb-8 bg-[#B7F000]
+       hover:bg-[#a6da00] text-slate-950 border
+       border-[#B7F000] font-semibold text-[20px] px-5
+       py-3 rounded-md shadow-sm
+       transition-all duration-300 cursor-pointer"
+      data-cursor="selectable"
+    >
+      <span>Client Access</span>
+      <svg
+        class="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+        />
+      </svg>
+    </a>
+  </div>
+</header>
+
+<script>
+  // --- 1. Mobile Menu & Submenu Logic ---
+  const toggleBtn = document.getElementById('menu-toggle-btn');
+  const menuPanel = document.getElementById('mobile-menu-panel');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  toggleBtn?.addEventListener('click', () => {
+    const isPanelOpen = !menuPanel?.classList.contains('hidden');
+    if (isPanelOpen) {
+      menuPanel?.classList.add('hidden');
+      hamburgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    } else {
+      menuPanel?.classList.remove('hidden');
+      hamburgerIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+    }
+  });
+
+  // Handles all mobile submenus (About Us, Services, etc.)
+  const mobileSubmenuBtns = document.querySelectorAll('.mobile-submenu-btn');
+
+  mobileSubmenuBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.mobile-submenu-group');
+      const submenuItems = group?.querySelector('.mobile-submenu-items');
+      const arrow = group?.querySelector('.mobile-submenu-arrow');
+
+      const isSubmenuHidden = submenuItems?.classList.contains('hidden');
+      if (isSubmenuHidden) {
+        submenuItems?.classList.remove('hidden');
+        arrow?.classList.add('rotate-180');
+      } else {
+        submenuItems?.classList.add('hidden');
+        arrow?.classList.remove('rotate-180');
+      }
+    });
+  });
+
+  // --- 2. Navbar Background & Logo Shrink on Scroll ---
+  const navbar = document.getElementById('main-navbar');
+  const navbarLogo = document.getElementById('navbar-logo');
+
+  const handleScroll = () => {
+    if (!navbar) return;
+
+    if (window.scrollY > 20) {
+      navbar.classList.remove('bg-transparent');
+      navbar.classList.add('bg-white', 'shadow-sm');
+
+      navbarLogo?.classList.add(
+        'h-18',
+        'w-auto',
+        'transition-all',
+        'duration-300'
+      );
+    } else {
+      navbar.classList.remove('bg-white', 'shadow-sm');
+      navbar.classList.add('bg-transparent');
+
+      navbarLogo?.classList.remove('h-18', 'w-auto');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+</script>
+
+<style>
+  .logo-link img {
+    width: 100;
+    display: block;
+  }
+</style>

@@ -1,0 +1,395 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const keyRisks = [
+  {
+    number: '01',
+    title: 'Market volatility:',
+    description:
+      'Prices of digital assets can rise or fall sharply and suddenly. Past performance is not a guide to future results.',
+  },
+  {
+    number: '02',
+    title: 'Technology and operational risks:',
+    description:
+      'Blockchain networks, smart contracts, wallets, and platform systems may experience failures, hacks, bugs, or cyber-attacks that can result in loss of assets.',
+  },
+  {
+    number: '03',
+    title: 'Liquidity risk:',
+    description:
+      'You may not be able to sell or convert your digital assets quickly or at the desired price.',
+  },
+  {
+    number: '04',
+    title: 'Regulatory and legal risk:',
+    description:
+      'Laws and regulations governing digital assets may change, affecting the value or legality of your holdings.',
+  },
+  {
+    number: '05',
+    title: 'Counterparty and custody risk:',
+    description:
+      'There is a risk of loss if the platform, custodian, or other service providers fail or become insolvent.',
+  },
+  {
+    number: '06',
+    title: 'Loss of principal:',
+    description:
+      'You may lose the entire amount invested or deposited.',
+  },
+];
+
+const investorRights = [
+  'The right to clear, accurate, and timely information about the digital assets, fees, and risks.',
+  'The right to receive confirmation of your transactions and account statements.',
+  'The right to fair and transparent treatment in the execution of orders and allocation of assets.',
+  'The right to withdraw or transfer your digital assets (subject to applicable terms, lock-up periods, and network conditions).',
+  'The right to lodge complaints and have them handled fairly and within a reasonable time.',
+  'The right to cooling-off or cancellation rights where specifically provided under SEC rules for certain offerings.',
+  'The right to be informed of any material changes that may affect your investments.',
+];
+
+const accessCriteria = [
+  'Be at least 18 years old.',
+  'Be a Nigerian resident or meet the eligibility criteria for non-resident users as permitted by SEC regulations.',
+  'Successfully complete our Know-Your-Customer (KYC) and Anti-Money Laundering (AML) verification process.',
+  'Provide accurate personal, identification, and contact information.',
+  'Not be a politically exposed person (PEP) or on any sanctions list, unless additional enhanced due diligence is completed and approved.',
+  'Agree to the platform’s Terms of Service, Risk Disclosures, and Privacy Policy.',
+  'Meet any additional eligibility requirements for specific services (e.g., higher net-worth or sophisticated investor status for certain offerings).',
+];
+---
+
+<Layout title="Regulatory Disclosures & Investor Protection | JohnBrain">
+  <Navbar />
+
+  <main class="w-full min-h-screen bg-slate-900 text-white font-sans mt-12">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-24 space-y-12">
+      <!-- 1. Page Header & Quick-Jump Navigation -->
+      <div class="bg-slate-950/90 border border-slate-800 rounded-2xl p-8 sm:p-12">
+        <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">
+          Governance, Risk &amp; Compliance
+        </p>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight max-w-4xl mb-6">
+          Regulatory Disclosures &amp; Investor Protection
+        </h1>
+
+        <div class="flex flex-wrap gap-2.5 pt-4 border-t border-slate-800">
+          <a href="#risk-warnings" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 hover:bg-[#B7F000] text-slate-200 hover:text-slate-950 border border-slate-700 transition-colors">
+            1. Risk Warnings
+          </a>
+          <a href="#protection-disclaimer" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 hover:bg-[#B7F000] text-slate-200 hover:text-slate-950 border border-slate-700 transition-colors">
+            2. Investor Protection Disclaimer
+          </a>
+          <a href="#investor-rights" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 hover:bg-[#B7F000] text-slate-200 hover:text-slate-950 border border-slate-700 transition-colors">
+            3. Investor Rights
+          </a>
+          <a href="#access-criteria" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 hover:bg-[#B7F000] text-slate-200 hover:text-slate-950 border border-slate-700 transition-colors">
+            4. Access Criteria
+          </a>
+          <a href="#educational-materials" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 hover:bg-[#B7F000] text-slate-200 hover:text-slate-950 border border-slate-700 transition-colors">
+            5. Educational Materials
+          </a>
+          <a href="#fees" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 hover:bg-[#B7F000] text-slate-200 hover:text-slate-950 border border-slate-700 transition-colors">
+            6. Fees &amp; Charges
+          </a>
+          <a href="#complaints" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 hover:bg-[#B7F000] text-slate-200 hover:text-slate-950 border border-slate-700 transition-colors">
+            7. Complaints &amp; Disputes
+          </a>
+          <a href="#contingency" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 hover:bg-[#B7F000] text-slate-200 hover:text-slate-950 border border-slate-700 transition-colors">
+            8. Contingency Arrangements
+          </a>
+        </div>
+      </div>
+      <!-- 2. Risk Warning Statements -->
+      <div id="risk-warnings" class="scroll-mt-28 bg-slate-950/80 border border-slate-800 rounded-2xl p-8 sm:p-10 space-y-8">
+        <div class="bg-amber-500/10 border-l-4 border-amber-400 rounded-r-xl p-6">
+          <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">
+            Risk Warning Statements
+          </h2>
+          <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+            Digital assets and related services involve a high degree of risk. You may lose some or all of the money or digital assets you invest or deposit.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-[#B7F000] uppercase tracking-wider mb-5">
+            Key risks include:
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {keyRisks.map((risk) => (
+              <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-6 flex items-start gap-4">
+                <span class="text-[#B7F000] font-bold text-lg shrink-0">{risk.number}.</span>
+                <p class="text-slate-300 text-base leading-relaxed">
+                  <strong class="font-semibold text-white">{risk.title}</strong> {risk.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Investor Protection Fund Disclaimer -->
+      <div id="protection-disclaimer" class="scroll-mt-28 bg-slate-950/80 border border-red-500/30 rounded-2xl p-8 sm:p-10">
+        <p class="text-red-400 font-bold text-xs uppercase tracking-widest mb-2">
+          Important Compensation Notice
+        </p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+          Investor Protection Fund Disclaimer
+        </h2>
+        <div class="space-y-3 text-slate-200 text-base sm:text-lg leading-relaxed">
+          <p>
+            Any loss resulting from investing in or trading digital assets through this platform is <strong class="text-white">“not covered”</strong> by any Investor Protection Fund or similar compensation scheme.
+          </p>
+          <p class="text-slate-300">
+            You should only invest money you can afford to lose. Carefully read all risk disclosures and seek independent advice if necessary before participating.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Investor Rights & Access Criteria -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div id="investor-rights" class="scroll-mt-28 bg-slate-950/80 border border-slate-800 rounded-2xl p-8 sm:p-10 flex flex-col justify-between">
+          <div>
+            <p class="text-[#B7F000] font-bold text-xs uppercase tracking-widest mb-2">
+              Investor Rights
+            </p>
+            <h2 class="text-2xl font-bold text-white mb-3">
+              Your Rights as an Investor / User
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base mb-6">
+              When you use this platform for investing in or trading digital assets, you have the following rights:
+            </p>
+            <ul class="space-y-3.5 text-slate-200 text-sm sm:text-base">
+              {investorRights.map((right) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                  <span>{right}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 leading-relaxed">
+            These rights are subject to the platform’s terms of service, applicable laws, and the specific terms of each digital asset offering.
+          </p>
+        </div>
+
+        <div id="access-criteria" class="scroll-mt-28 bg-slate-950/80 border border-slate-800 rounded-2xl p-8 sm:p-10 flex flex-col justify-between">
+          <div>
+            <p class="text-[#B7F000] font-bold text-xs uppercase tracking-widest mb-2">
+              Access Criteria
+            </p>
+            <h2 class="text-2xl font-bold text-white mb-3">
+              Eligibility and Access Criteria
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base mb-6">
+              To open an account and use the services of this platform, you must:
+            </p>
+            <ul class="space-y-3.5 text-slate-200 text-sm sm:text-base">
+              {accessCriteria.map((criterion) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                  <span>{criterion}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 leading-relaxed">
+            We reserve the right to refuse, suspend, or terminate access if eligibility criteria are not met or if regulatory requirements change.
+          </p>
+        </div>
+      </div>
+      <!-- 5. Educational Materials & Fees -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div id="educational-materials" class="scroll-mt-28 bg-slate-950/80 border border-slate-800 rounded-2xl p-8 sm:p-10 flex flex-col justify-between">
+          <div>
+            <p class="text-[#B7F000] font-bold text-xs uppercase tracking-widest mb-2">
+              Knowledge &amp; Literacy
+            </p>
+            <h2 class="text-2xl font-bold text-white mb-3">
+              Educational Materials
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base mb-6">
+              We provide the following materials to help you understand digital assets and make informed decisions:
+            </p>
+            <ul class="space-y-3.5 text-slate-200 text-sm sm:text-base">
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span>Overview of digital assets, blockchain technology, and how token offerings work.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span>Explanation of the differences between utility tokens, security tokens, and other digital assets.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span>Key risks associated with digital asset investments.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span>How to read a white paper and evaluate an offering.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span>Comparative information on traditional securities versus digital assets.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span>Guides on wallet security, private key management, and safe trading practices.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span>Glossary of common digital asset terms.</span>
+              </li>
+            </ul>
+          </div>
+          <p class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 leading-relaxed">
+            These materials are for educational purposes only and do not constitute investment advice. Always do your own research and consider seeking professional advice.
+          </p>
+        </div>
+
+        <div id="fees" class="scroll-mt-28 bg-slate-950/80 border border-slate-800 rounded-2xl p-8 sm:p-10 flex flex-col justify-between">
+          <div>
+            <p class="text-[#B7F000] font-bold text-xs uppercase tracking-widest mb-2">
+              Pricing Transparency
+            </p>
+            <h2 class="text-2xl font-bold text-white mb-3">
+              Fees, Charges, and Expenses
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base mb-6">
+              We are committed to full transparency on all fees. The following fees may apply (subject to change with notice):
+            </p>
+            <ul class="space-y-3.5 text-slate-200 text-sm sm:text-base">
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span><strong class="text-white">Account opening / KYC verification fee:</strong> [state if any or “Nil”]</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span><strong class="text-white">Trading / transaction fees:</strong> [e.g., X% per trade or flat fee]</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span><strong class="text-white">Deposit and withdrawal fees:</strong> [fiat and digital asset fees]</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span><strong class="text-white">Custody / safekeeping fees (if applicable):</strong> [state rate]</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span><strong class="text-white">Platform or listing fees for offerings (if charged to users):</strong> [state]</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[#B7F000] shrink-0"></span>
+                <span><strong class="text-white">Any other charges (e.g., inactivity, statement, or special service fees):</strong> [list]</span>
+              </li>
+            </ul>
+          </div>
+          <p class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 leading-relaxed">
+            All applicable fees will be clearly displayed before you confirm any transaction. No hidden fees will be charged. A full and up-to-date fee schedule is available on our Fees page and in your account dashboard.
+          </p>
+        </div>
+      </div>
+      <!-- 6. Complaints and Dispute Resolution -->
+      <div id="complaints" class="scroll-mt-28 bg-slate-950/80 border border-slate-800 rounded-2xl p-8 sm:p-10">
+        <p class="text-[#B7F000] font-bold text-xs uppercase tracking-widest mb-2">
+          Complaints and Dispute Resolution
+        </p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">
+          Complaints Handling Procedure
+        </h2>
+        <p class="text-slate-300 text-base mb-8">
+          If you have a complaint about our services, please follow these steps:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <span class="text-[#B7F000] font-bold text-lg block mb-2">Step 01</span>
+            <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+              Contact our Customer Support team first via email at <strong class="text-white">[support@yourcompany.com]</strong> or through the in-app chat. We aim to acknowledge your complaint within <strong class="text-white">2 business days</strong>.
+            </p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <span class="text-[#B7F000] font-bold text-lg block mb-2">Step 02</span>
+            <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+              If you are not satisfied with the response, escalate to our Compliance Officer at <strong class="text-white">[compliance@johnbrain.com]</strong>.
+            </p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <span class="text-[#B7F000] font-bold text-lg block mb-2">Step 03</span>
+            <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+              We will investigate and provide a written response within <strong class="text-white">15 business days</strong> (or longer if the matter is complex, with interim updates).
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-5 text-sm sm:text-base text-slate-300 space-y-2">
+          <p>
+            If you remain dissatisfied after our internal process, you may escalate the matter to the <strong class="text-white">Securities and Exchange Commission (SEC) Nigeria</strong> through their official complaints channels.
+          </p>
+          <p class="text-slate-400">
+            We treat all complaints seriously and aim to resolve them fairly and promptly.
+          </p>
+        </div>
+      </div>
+
+      <!-- 7. Contingency Arrangements -->
+      <div id="contingency" class="scroll-mt-28 bg-slate-950/80 border border-slate-800 rounded-2xl p-8 sm:p-10">
+        <p class="text-[#B7F000] font-bold text-xs uppercase tracking-widest mb-2">
+          Contingency Arrangements
+        </p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+          Business Continuity and Cessation of Operations
+        </h2>
+        <p class="text-slate-300 text-base leading-relaxed mb-3">
+          We maintain a Business Continuity and Disaster Recovery Plan designed to ensure continuity of critical services during disruptions.
+        </p>
+        <p class="text-slate-200 font-semibold text-base mb-6">
+          In the event that we are unable to continue operations or decide to cease business:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex items-start gap-4">
+            <span class="text-[#B7F000] font-bold text-lg shrink-0">01.</span>
+            <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+              Client digital assets held in custody will be returned or transferred to clients (or their nominated wallets/addresses) in an orderly manner, subject to network conditions and applicable regulations.
+            </p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex items-start gap-4">
+            <span class="text-[#B7F000] font-bold text-lg shrink-0">02.</span>
+            <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+              We will provide reasonable notice to clients and publish clear instructions on how to claim or transfer assets.
+            </p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex items-start gap-4">
+            <span class="text-[#B7F000] font-bold text-lg shrink-0">03.</span>
+            <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+              Client funds and assets will be segregated from our own assets and will not form part of our estate in insolvency, to the extent protected under applicable law and custody arrangements.
+            </p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex items-start gap-4">
+            <span class="text-[#B7F000] font-bold text-lg shrink-0">04.</span>
+            <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+              We will cooperate with the SEC and any appointed administrator or liquidator to protect client interests.
+            </p>
+          </div>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-400">
+          Full details of our contingency arrangements are available upon request from our Compliance team.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

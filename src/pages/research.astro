@@ -1,0 +1,176 @@
+---
+import { Image } from "astro:assets";
+import research from "../assets/research.jpg"; // Update extension (.png/.webp) if needed
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const pillars = [
+  {
+    num: "01",
+    title: "Digital Asset Market Intelligence",
+    desc: "Institutional-grade tracking of liquidity flows, stablecoin adoption, cross-border settlement rails, and digital asset infrastructure across African markets.",
+  },
+  {
+    num: "02",
+    title: "Regulatory & Policy Analysis",
+    desc: "Detailed breakdowns of SEC, CBN, and pan-African licensing frameworks, compliance obligations, and evolving regulatory sandboxes.",
+  },
+  {
+    num: "03",
+    title: "Tokenisation & Real-World Assets",
+    desc: "Structuring research on fractionalized real estate, private credit, commodities, and institutional custody models.",
+  },
+  {
+    num: "04",
+    title: "Capital Markets & Deal Flow Briefings",
+    desc: "Sector valuations, venture and private equity deployment trends, and cross-border M&A benchmarks for institutional allocators.",
+  },
+];
+
+const reports = [
+  {
+    tag: "MARKET REPORT",
+    title: "African Digital Asset & Stablecoin Infrastructure Outlook",
+    summary: "An institutional assessment of regulatory clarity, payment corridors, and liquidity architecture across key African financial hubs.",
+  },
+  {
+    tag: "REGULATORY BRIEF",
+    title: "Navigating Virtual Asset Service Provider (VASP) Licensing",
+    summary: "A practical compliance roadmap covering governance, AML/CFT controls, capital adequacy, and operational readiness.",
+  },
+  {
+    tag: "CAPITAL INSIGHTS",
+    title: "Tokenising Real-World Assets for Cross-Border Institutional Capital",
+    summary: "Structuring frameworks for compliant real estate and infrastructure offerings targeting global venture and private equity investors.",
+  },
+];
+---
+
+<Layout title="Research & Insights | JohnBrain">
+  <Navbar />
+
+  <main class="w-full bg-cyan-950 text-white font-sans mt-12">
+    <!-- 1. DEDICATED TOP HERO BANNER -->
+    <section class="relative w-full min-h-[60vh] flex items-center overflow-hidden border-b
+     border-slate-800">
+      <div class="absolute inset-0 w-full h-full z-0">
+        <Image
+          src={research}
+          alt="Research and Insights Background"
+          class="w-full h-full object-cover object-center opacity-90"
+          loading="eager"
+        />
+        <div class="absolute inset-0 
+        bg-linear-to-r from-slate-950/40 via-slate-950/40 to-transparent"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20">
+        <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">
+          RESEARCH AND INSIGHTS
+        </p>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-tight max-w-3xl mb-4">
+          Institutional Digital Asset & Capital Markets Intelligence
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl">
+          Data-driven analysis, regulatory intelligence, and structured executive education bridging African digital finance with global institutional capital.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Body Wrapper -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 space-y-24">
+      <!-- 2. CORE RESEARCH PILLARS -->
+      <section>
+        <div class="mb-10">
+          <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-2">
+            FOCUS AREAS
+          </p>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-white">
+            Core Research & Advisory Pillars
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {pillars.map((pillar) => (
+            <div class="bg-slate-900/80 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-6 sm:p-8 transition-colors duration-300 flex items-start gap-5">
+              <span class="text-[#B7F000] font-bold text-lg sm:text-xl shrink-0">
+                {pillar.num}.
+              </span>
+              <div class="space-y-2">
+                <h3 class="text-xl font-bold text-white tracking-tight">
+                  {pillar.title}
+                </h3>
+                <p class="text-slate-300 text-base leading-relaxed">
+                  {pillar.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      <!-- 3. FEATURED PUBLICATIONS & BRIEFINGS -->
+      <section class="border-t border-slate-800/80 pt-16">
+        <div class="mb-10">
+          <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-2">
+            PUBLICATIONS
+          </p>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-white">
+            Featured Briefings & Market Reports
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {reports.map((report) => (
+            <div class="bg-slate-900/60 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-7 flex flex-col justify-between transition-all duration-300">
+              <div class="space-y-4">
+                <span class="inline-block text-xs font-bold uppercase tracking-wider text-slate-950 bg-[#B7F000] px-3 py-1 rounded-md">
+                  {report.tag}
+                </span>
+                <h3 class="text-xl font-bold text-white leading-snug">
+                  {report.title}
+                </h3>
+                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                  {report.summary}
+                </p>
+              </div>
+
+              <div class="pt-6 mt-6 border-t border-slate-800/80">
+                <a
+                  href="/contact"
+                  class="text-xs font-bold text-[#B7F000] hover:text-white uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors"
+                >
+                  Request Full Briefing <span>→</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      <!-- 4. BESPOKE RESEARCH CTA -->
+      <section class="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="space-y-3 max-w-2xl">
+          <p class="text-[#B7F000] font-bold text-xs uppercase tracking-widest">
+            INSTITUTIONAL ADVISORY
+          </p>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-white">
+            Commission Bespoke Market or Regulatory Research
+          </h2>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Our research team produces tailored due diligence reports, jurisdiction feasibility studies, and executive workshops for funds, banks, and fintech operators.
+          </p>
+        </div>
+
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#B7F000] text-slate-950 font-bold text-base hover:bg-white transition-all shrink-0 shadow-lg"
+        >
+          Contact Research Team →
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

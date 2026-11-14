@@ -15,23 +15,22 @@ const { title = 'John Brain' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
   </head>
-  <!-- NOTE: 'cursor-none' disables the default browser mouse arrow universally so our custom glow ball takes over completely -->
+  <!-- Changed 'cursor-none' to 'md:cursor-none' so touchscreens retain normal touch behavior -->
   <body
-    class="min-h-full bg-transparent text-slate-900 m-0 p-0 cursor-none
-	 selection:text-white relative"
+    class="min-h-full bg-transparent text-slate-900 m-0 p-0 md:cursor-none selection:text-white relative"
   >
-    <!-- 1A. THE GLOW BALL: Leads at the exact mouse coordinates and expands on hover -->
+    <!-- 1A. THE GLOW BALL: Hidden on mobile/tablet ('hidden md:block') -->
     <div
       id="custom-glow-cursor"
-      class="fixed top-0 left-0 sm:w-2 sm:h-2 sm:bg-[#B7F000] rounded-full pointer-events-none
-			 -translate-x-1/2 -translate-y-1/2 transition-all duration-75 ease-out"
+      class="hidden md:block fixed top-0 left-0 w-2 h-2 bg-[#B7F000] rounded-full pointer-events-none
+             -translate-x-1/2 -translate-y-1/2 transition-all duration-75 ease-out"
       style="z-index: 9999;"
     ></div>
 
-    <!-- 1B. THE POINTER ARROW: Positioned bottom-right of the glow ball so its tip points directly at it -->
+    <!-- 1B. THE POINTER ARROW: Hidden on mobile/tablet ('hidden md:block') -->
     <div
       id="custom-cursor-arrow"
-      class="fixed top-0 left-0 pointer-events-none transition-all duration-150 ease-out"
+      class="hidden md:block fixed top-0 left-0 pointer-events-none transition-all duration-150 ease-out"
       style="z-index: 10000;"
     >
       <svg
@@ -49,69 +48,68 @@ const { title = 'John Brain' } = Astro.props;
 
     <slot />
 
-    <!-- 2. GLOBAL TRACKER ENGINE: Monitors global mouse coordinate changes and select hovering hooks -->
+    <!-- 2. GLOBAL TRACKER ENGINE -->
     <script>
       const ball = document.getElementById('custom-glow-cursor');
       const arrow = document.getElementById('custom-cursor-arrow');
 
-      // Track active hardware pointer positioning values
-      window.addEventListener('mousemove', (e) => {
-        if (ball) {
-          // Glow ball stays locked directly onto your exact cursor position
-          ball.style.left = `${e.clientX}px`;
-          ball.style.top = `${e.clientY}px`;
-        }
+      // Detect if device has a fine pointer (mouse/trackpad) vs touch screen
+      const isDesktopPointer = window.matchMedia('(pointer: fine)').matches;
 
-        if (arrow) {
-          // Offset bottom-right so the top-left arrow tip points straight at the glow ball and trails it
-          arrow.style.left = `${e.clientX + 5}px`;
-          arrow.style.top = `${e.clientY + 5}px`;
-        }
-      });
+      if (!isDesktopPointer) {
+        // Completely remove cursor elements from touch screens (phones & iPads)
+        ball?.remove();
+        arrow?.remove();
+      } else {
+        window.addEventListener('mousemove', (e) => {
+          if (ball) {
+            ball.style.left = `${e.clientX}px`;
+            ball.style.top = `${e.clientY}px`;
+          }
 
-      // MONITOR HIGHLIGHT EXPANSION LOOPS:
-      // We scan for elements explicitly marked with our dataset hook 'data-cursor="selectable"'
-      document.addEventListener('mouseover', (e) => {
-        const target = e.target as HTMLElement;
-        const isSelectable = target?.closest('[data-cursor="selectable"]');
+          if (arrow) {
+            arrow.style.left = `${e.clientX + 5}px`;
+            arrow.style.top = `${e.clientY + 5}px`;
+          }
+        });
 
-        if (isSelectable && ball) {
-          arrow?.classList.add('opacity-0');
+        document.addEventListener('mouseover', (e) => {
+          const target = e.target as HTMLElement;
+          const isSelectable = target?.closest('[data-cursor="selectable"]');
 
-          // CUSTOMIZE MAGNIFIED BALL HERE:
-          // Transitions small neon green ball into a wide transparent green halo ring over links
-          ball.classList.remove('sm:w-2', 'sm:h-2', 'sm:bg-[#B7F000]');
-          ball.classList.add(
-            'sm:w-20',
-            'sm:h-20',
-            'sm:bg-[#B7F000]/20',
-            'sm:border',
-            'sm:border-[#B7F000]',
-            'sm:scale-110'
-          );
-        }
-      });
+          if (isSelectable && ball) {
+            arrow?.classList.add('opacity-0');
+            ball.classList.remove('w-2', 'h-2', 'bg-[#B7F000]');
+            ball.classList.add(
+              'w-20',
+              'h-20',
+              'bg-[#B7F000]/20',
+              'border',
+              'border-[#B7F000]',
+              'scale-110'
+            );
+          }
+        });
 
-      // RESET BALANCING LOOPS: Reverts cursor properties back to normal scale when mouse exits hover focus
-      document.addEventListener('mouseout', (e) => {
-        const target = e.target as HTMLElement;
-        const leftSelectable = target?.closest('[data-cursor="selectable"]');
+        document.addEventListener('mouseout', (e) => {
+          const target = e.target as HTMLElement;
+          const leftSelectable = target?.closest('[data-cursor="selectable"]');
 
-        if (leftSelectable && ball) {
-          arrow?.classList.remove('opacity-0');
-
-          // Wipes out expanded hover utility styles and applies baseline Neon Green tracking dot
-          ball.classList.remove(
-            'sm:w-20',
-            'sm:h-20',
-            'sm:bg-[#B7F000]/20',
-            'sm:border',
-            'sm:border-[#B7F000]',
-            'sm:scale-110'
-          );
-          ball.classList.add('sm:w-2', 'sm:h-2', 'sm:bg-[#B7F000]');
-        }
-      });
+          if (leftSelectable && ball) {
+            arrow?.classList.remove('opacity-0');
+            ball.classList.remove(
+              'w-20',
+              'h-20',
+              'bg-[#B7F000]/20',
+              'border',
+              'border-[#B7F000]',
+              'scale-110'
+            );
+            ball.classList.add('w-2', 'h-2', 'bg-[#B7F000]');
+          }
+        });
+      }
     </script>
   </body>
 </html>
+

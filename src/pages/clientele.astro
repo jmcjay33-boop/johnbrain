@@ -1,10 +1,145 @@
 
 ---
-// src/pages/index.astro
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
+import { Image } from "astro:assets";
+import portalbg from "../assets/portal.jpg";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const portals = [
+  {
+    code: "01",
+    title: "DAOP Issuer & Fundraising Portal",
+    desc: "Submit offering documentation, manage capital raises, and track subscription milestones.",
+    action: "Issuer Login",
+    href: "#",
+  },
+  {
+    code: "02",
+    title: "Investor Onboarding & Investment Portal",
+    desc: "Complete KYC/AML verification, review vetted opportunities, and execute subscriptions.",
+    action: "Investor Login",
+    href: "#",
+  },
+  {
+    code: "03",
+    title: "DAI Transaction & Brokerage Portal",
+    desc: "Access institutional digital asset execution, settlement rails, and portfolio reporting.",
+    action: "Access Desk",
+    href: "#",
+  },
+  {
+    code: "04",
+    title: "Tokenisation & Real-World Asset Services",
+    desc: "Structure, issue, and administer fractionalized real estate, credit, and infrastructure tokens.",
+    action: "Launch Workspace",
+    href: "#",
+  },
+  {
+    code: "05",
+    title: "Issuer Due Diligence & Project Monitoring",
+    desc: "Real-time compliance tracking, post-issuance reporting, and governance audit trails.",
+    action: "Enter Portal",
+    href: "#",
+  },
+  {
+    code: "06",
+    title: "Institutional Investor Services",
+    desc: "Dedicated custody coordination, curated deal rooms, and bespoke allocation management.",
+    action: "Institutional Access",
+    href: "#",
+  },
+  {
+    code: "07",
+    title: "Research & Digital Asset Education",
+    desc: "Institutional market intelligence, regulatory briefings, and executive training modules.",
+    action: "Open Library",
+    href: "/research",
+  },
+];
 ---
 
-<Layout>
+<Layout title="Client Access Portal | JohnBrain">
   <Navbar />
+
+  <main class="w-full bg-slate-950 text-white font-sans mt-12">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24">
+      <!-- Portal Header -->
+      <div class="pb-8 mb-8 border-b border-slate-800 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+        <div class="max-w-3xl">
+          <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">
+            CLIENT ACCESS - PORTAL
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-tight mb-4">
+            Unified Digital Asset & Capital Markets Infrastructure
+          </h1>
+          <p class="text-lg text-slate-300 leading-relaxed">
+            Select your designated workspace below to access onboarding, deal execution, compliance monitoring, or institutional research.
+          </p>
+        </div>
+
+        <a
+          href="#"
+          class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-[#B7F000] text-[#B7F000] hover:bg-[#B7F000] hover:text-slate-950 font-bold text-sm transition-all shrink-0"
+        >
+          Request New Account Access →
+        </a>
+      </div>
+
+      <!-- Multi-Portal Visual Showcase Banner -->
+      <div class="relative w-full h-64 sm:h-80 lg:h-105 rounded-2xl overflow-hidden border border-slate-800 mb-12 shadow-2xl">
+        <Image
+          src={portalbg}
+          alt="JohnBrain Multi-Portal Infrastructure Interface"
+          class="w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-linear-to-t from-slate-950/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-4 left-6 right-6 flex items-center justify-between text-xs text-slate-300">
+          <span class="bg-slate-950/80 backdrop-blur-sm border border-slate-800 px-3 py-1.5 rounded-lg text-[#B7F000] font-semibold">
+            ● Live Ecosystem Architecture
+          </span>
+          <span class="hidden sm:inline bg-slate-950/80 backdrop-blur-sm border border-slate-800 px-3 py-1.5 rounded-lg">
+            Tokenisation • Trading • Onboarding • Capital Raise
+          </span>
+        </div>
+      </div>
+
+      <!-- 7 Portal Modules Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {portals.map((item) => (
+          <div class="bg-slate-900/80 border border-slate-800 hover:border-[#B7F000]/60 rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 group">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#B7F000] bg-slate-950 px-3 py-1 rounded-md border border-slate-800">
+                  MODULE {item.code}
+                </span>
+                <svg class="w-5 h-5 text-slate-500 group-hover:text-[#B7F000] transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+              </div>
+
+              <h2 class="text-xl font-bold text-white leading-snug">
+                {item.title}
+              </h2>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-slate-800/80">
+              <a
+                href={item.href}
+                class="text-xs font-bold text-[#B7F000] group-hover:text-white uppercase tracking-wider inline-flex items-center gap-2 transition-colors"
+              >
+                {item.action} <span>→</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
 </Layout>

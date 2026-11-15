@@ -47,8 +47,24 @@ const { title = 'John Brain' } = Astro.props;
 
     <slot />
 
-    <!-- Global override: Forces normal cursor behavior and hides custom cursors on all small/touch screens -->
+    <!-- Global cursor rules -->
     <style is:global>
+      /* Desktop: Show pointed hand on clickable items, hide default arrow on empty space */
+      @media (min-width: 1024px) and (pointer: fine) {
+        body {
+          cursor: none !important;
+        }
+
+        a,
+        button,
+        [role="button"],
+        [data-cursor="selectable"],
+        .cursor-pointer {
+          cursor: pointer !important;
+        }
+      }
+
+      /* Mobile / Tablet: Hide custom cursors and restore normal touch behavior */
       @media (max-width: 1023px), (pointer: coarse) {
         #custom-glow-cursor,
         #custom-cursor-arrow {
@@ -72,13 +88,17 @@ const { title = 'John Brain' } = Astro.props;
     <script>
       const ball = document.getElementById('custom-glow-cursor');
       const arrow = document.getElementById('custom-cursor-arrow');
+      let isHoveringSelectable = false;
 
-      // Only run custom cursor on wide desktop screens with a real mouse
       const isDesktopMouse = () =>
         window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches;
 
       window.addEventListener('mousemove', (e) => {
         if (!isDesktopMouse()) return;
+
+        // Check on every move whether the cursor is over a link, button, or selectable item
+        const target = e.target as HTMLElement;
+        const hoveredItem = target?.closest('a, button, [role="button"], [data-cursor="selectable"]');
 
         if (ball) {
           ball.classList.remove('opacity-0');
@@ -87,20 +107,20 @@ const { title = 'John Brain' } = Astro.props;
         }
 
         if (arrow) {
-          arrow.classList.remove('opacity-0');
           arrow.style.left = `${e.clientX + 5}px`;
           arrow.style.top = `${e.clientY + 5}px`;
+
+          // Keep custom green arrow hidden while hovering an item; only show it on empty space
+          if (hoveredItem) {
+            arrow.classList.add('opacity-0');
+          } else {
+            arrow.classList.remove('opacity-0');
+          }
         }
-      });
 
-      document.addEventListener('mouseover', (e) => {
-        if (!isDesktopMouse()) return;
-
-        const target = e.target as HTMLElement;
-        const isSelectable = target?.closest('[data-cursor="selectable"]');
-
-        if (isSelectable && ball) {
-          arrow?.classList.add('opacity-0');
+        // Expand or shrink the glow ball cleanly without flickering
+        if (hoveredItem && !isHoveringSelectable && ball) {
+          isHoveringSelectable = true;
           ball.classList.remove('w-2', 'h-2', 'bg-[#B7F000]');
           ball.classList.add(
             'w-20',
@@ -110,17 +130,8 @@ const { title = 'John Brain' } = Astro.props;
             'border-[#B7F000]',
             'scale-110'
           );
-        }
-      });
-
-      document.addEventListener('mouseout', (e) => {
-        if (!isDesktopMouse()) return;
-
-        const target = e.target as HTMLElement;
-        const leftSelectable = target?.closest('[data-cursor="selectable"]');
-
-        if (leftSelectable && ball) {
-          arrow?.classList.remove('opacity-0');
+        } else if (!hoveredItem && isHoveringSelectable && ball) {
+          isHoveringSelectable = false;
           ball.classList.remove(
             'w-20',
             'h-20',

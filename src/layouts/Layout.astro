@@ -15,22 +15,21 @@ const { title = 'John Brain' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
   </head>
-  <!-- Changed 'cursor-none' to 'md:cursor-none' so touchscreens retain normal touch behavior -->
   <body
-    class="min-h-full bg-transparent text-slate-900 m-0 p-0 md:cursor-none selection:text-white relative"
+    class="min-h-full bg-transparent text-slate-900 m-0 p-0 lg:cursor-none selection:text-white relative"
   >
-    <!-- 1A. THE GLOW BALL: Hidden on mobile/tablet ('hidden md:block') -->
+    <!-- 1A. THE GLOW BALL: Strictly hidden on screens smaller than 1024px (lg) -->
     <div
       id="custom-glow-cursor"
-      class="hidden md:block fixed top-0 left-0 w-2 h-2 bg-[#B7F000] rounded-full pointer-events-none
-             -translate-x-1/2 -translate-y-1/2 transition-all duration-75 ease-out"
+      class="hidden lg:block fixed top-0 left-0 w-2 h-2 bg-[#B7F000] rounded-full pointer-events-none
+             -translate-x-1/2 -translate-y-1/2 transition-all duration-75 ease-out opacity-0"
       style="z-index: 9999;"
     ></div>
 
-    <!-- 1B. THE POINTER ARROW: Hidden on mobile/tablet ('hidden md:block') -->
+    <!-- 1B. THE POINTER ARROW: Strictly hidden on screens smaller than 1024px (lg) -->
     <div
       id="custom-cursor-arrow"
-      class="hidden md:block fixed top-0 left-0 pointer-events-none transition-all duration-150 ease-out"
+      class="hidden lg:block fixed top-0 left-0 pointer-events-none transition-all duration-150 ease-out opacity-0"
       style="z-index: 10000;"
     >
       <svg
@@ -48,68 +47,91 @@ const { title = 'John Brain' } = Astro.props;
 
     <slot />
 
+    <!-- Global override: Forces normal cursor behavior and hides custom cursors on all small/touch screens -->
+    <style is:global>
+      @media (max-width: 1023px), (pointer: coarse) {
+        #custom-glow-cursor,
+        #custom-cursor-arrow {
+          display: none !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+        }
+
+        body,
+        a,
+        button,
+        [data-cursor="selectable"],
+        .cursor-none,
+        .cursor-pointer {
+          cursor: auto !important;
+        }
+      }
+    </style>
+
     <!-- 2. GLOBAL TRACKER ENGINE -->
     <script>
       const ball = document.getElementById('custom-glow-cursor');
       const arrow = document.getElementById('custom-cursor-arrow');
 
-      // Detect if device has a fine pointer (mouse/trackpad) vs touch screen
-      const isDesktopPointer = window.matchMedia('(pointer: fine)').matches;
+      // Only run custom cursor on wide desktop screens with a real mouse
+      const isDesktopMouse = () =>
+        window.innerWidth >= 1024 && window.matchMedia('(pointer: fine)').matches;
 
-      if (!isDesktopPointer) {
-        // Completely remove cursor elements from touch screens (phones & iPads)
-        ball?.remove();
-        arrow?.remove();
-      } else {
-        window.addEventListener('mousemove', (e) => {
-          if (ball) {
-            ball.style.left = `${e.clientX}px`;
-            ball.style.top = `${e.clientY}px`;
-          }
+      window.addEventListener('mousemove', (e) => {
+        if (!isDesktopMouse()) return;
 
-          if (arrow) {
-            arrow.style.left = `${e.clientX + 5}px`;
-            arrow.style.top = `${e.clientY + 5}px`;
-          }
-        });
+        if (ball) {
+          ball.classList.remove('opacity-0');
+          ball.style.left = `${e.clientX}px`;
+          ball.style.top = `${e.clientY}px`;
+        }
 
-        document.addEventListener('mouseover', (e) => {
-          const target = e.target as HTMLElement;
-          const isSelectable = target?.closest('[data-cursor="selectable"]');
+        if (arrow) {
+          arrow.classList.remove('opacity-0');
+          arrow.style.left = `${e.clientX + 5}px`;
+          arrow.style.top = `${e.clientY + 5}px`;
+        }
+      });
 
-          if (isSelectable && ball) {
-            arrow?.classList.add('opacity-0');
-            ball.classList.remove('w-2', 'h-2', 'bg-[#B7F000]');
-            ball.classList.add(
-              'w-20',
-              'h-20',
-              'bg-[#B7F000]/20',
-              'border',
-              'border-[#B7F000]',
-              'scale-110'
-            );
-          }
-        });
+      document.addEventListener('mouseover', (e) => {
+        if (!isDesktopMouse()) return;
 
-        document.addEventListener('mouseout', (e) => {
-          const target = e.target as HTMLElement;
-          const leftSelectable = target?.closest('[data-cursor="selectable"]');
+        const target = e.target as HTMLElement;
+        const isSelectable = target?.closest('[data-cursor="selectable"]');
 
-          if (leftSelectable && ball) {
-            arrow?.classList.remove('opacity-0');
-            ball.classList.remove(
-              'w-20',
-              'h-20',
-              'bg-[#B7F000]/20',
-              'border',
-              'border-[#B7F000]',
-              'scale-110'
-            );
-            ball.classList.add('w-2', 'h-2', 'bg-[#B7F000]');
-          }
-        });
-      }
+        if (isSelectable && ball) {
+          arrow?.classList.add('opacity-0');
+          ball.classList.remove('w-2', 'h-2', 'bg-[#B7F000]');
+          ball.classList.add(
+            'w-20',
+            'h-20',
+            'bg-[#B7F000]/20',
+            'border',
+            'border-[#B7F000]',
+            'scale-110'
+          );
+        }
+      });
+
+      document.addEventListener('mouseout', (e) => {
+        if (!isDesktopMouse()) return;
+
+        const target = e.target as HTMLElement;
+        const leftSelectable = target?.closest('[data-cursor="selectable"]');
+
+        if (leftSelectable && ball) {
+          arrow?.classList.remove('opacity-0');
+          ball.classList.remove(
+            'w-20',
+            'h-20',
+            'bg-[#B7F000]/20',
+            'border',
+            'border-[#B7F000]',
+            'scale-110'
+          );
+          ball.classList.add('w-2', 'h-2', 'bg-[#B7F000]');
+        }
+      });
     </script>
   </body>
 </html>
-

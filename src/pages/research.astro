@@ -1,48 +1,52 @@
 ---
-import { Image } from "astro:assets";
-import research from "../assets/research.jpg"; // Update extension (.png/.webp) if needed
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
+import { Image } from 'astro:assets';
+import research from '../assets/research.jpg'; // Update extension (.png/.webp) if needed
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 
 const pillars = [
   {
-    num: "01",
-    title: "Digital Asset Market Intelligence",
-    desc: "Institutional-grade tracking of liquidity flows, stablecoin adoption, cross-border settlement rails, and digital asset infrastructure across African markets.",
+    num: '01',
+    title: 'Digital Asset Market Intelligence',
+    desc: 'Institutional-grade tracking of liquidity flows, stablecoin adoption, cross-border settlement rails, and digital asset infrastructure across African markets.',
   },
   {
-    num: "02",
-    title: "Regulatory & Policy Analysis",
-    desc: "Detailed breakdowns of SEC, CBN, and pan-African licensing frameworks, compliance obligations, and evolving regulatory sandboxes.",
+    num: '02',
+    title: 'Regulatory & Policy Analysis',
+    desc: 'Detailed breakdowns of SEC, CBN, and pan-African licensing frameworks, compliance obligations, and evolving regulatory sandboxes.',
   },
   {
-    num: "03",
-    title: "Tokenisation & Real-World Assets",
-    desc: "Structuring research on fractionalized real estate, private credit, commodities, and institutional custody models.",
+    num: '03',
+    title: 'Tokenisation & Real-World Assets',
+    desc: 'Structuring research on fractionalized real estate, private credit, commodities, and institutional custody models.',
   },
   {
-    num: "04",
-    title: "Capital Markets & Deal Flow Briefings",
-    desc: "Sector valuations, venture and private equity deployment trends, and cross-border M&A benchmarks for institutional allocators.",
+    num: '04',
+    title: 'Capital Markets & Deal Flow Briefings',
+    desc: 'Sector valuations, venture and private equity deployment trends, and cross-border M&A benchmarks for institutional allocators.',
   },
 ];
 
 const reports = [
   {
-    tag: "MARKET REPORT",
-    title: "African Digital Asset & Stablecoin Infrastructure Outlook",
-    summary: "An institutional assessment of regulatory clarity, payment corridors, and liquidity architecture across key African financial hubs.",
+    tag: 'MARKET REPORT',
+    title: 'African Digital Asset & Stablecoin Infrastructure Outlook',
+    summary:
+      'An institutional assessment of regulatory clarity, payment corridors, and liquidity architecture across key African financial hubs.',
   },
   {
-    tag: "REGULATORY BRIEF",
-    title: "Navigating Virtual Asset Service Provider (VASP) Licensing",
-    summary: "A practical compliance roadmap covering governance, AML/CFT controls, capital adequacy, and operational readiness.",
+    tag: 'REGULATORY BRIEF',
+    title: 'Navigating Virtual Asset Service Provider (VASP) Licensing',
+    summary:
+      'A practical compliance roadmap covering governance, AML/CFT controls, capital adequacy, and operational readiness.',
   },
   {
-    tag: "CAPITAL INSIGHTS",
-    title: "Tokenising Real-World Assets for Cross-Border Institutional Capital",
-    summary: "Structuring frameworks for compliant real estate and infrastructure offerings targeting global venture and private equity investors.",
+    tag: 'CAPITAL INSIGHTS',
+    title:
+      'Tokenising Real-World Assets for Cross-Border Institutional Capital',
+    summary:
+      'Structuring frameworks for compliant real estate and infrastructure offerings targeting global venture and private equity investors.',
   },
 ];
 ---
@@ -52,8 +56,10 @@ const reports = [
 
   <main class="w-full bg-cyan-950 text-white font-sans mt-12">
     <!-- 1. DEDICATED TOP HERO BANNER -->
-    <section class="relative w-full min-h-[60vh] flex items-center overflow-hidden border-b
-     border-slate-800">
+    <section
+      class="relative w-full min-h-[60vh] flex items-center overflow-hidden border-b
+     border-slate-800"
+    >
       <div class="absolute inset-0 w-full h-full z-0">
         <Image
           src={research}
@@ -61,8 +67,10 @@ const reports = [
           class="w-full h-full object-cover object-center opacity-90"
           loading="eager"
         />
-        <div class="absolute inset-0 
-        bg-linear-to-r from-slate-950/40 via-slate-950/40 to-transparent"></div>
+        <div
+          class="absolute inset-0
+        bg-linear-to-r from-slate-950/40 via-slate-950/40 to-transparent"
+        ></div>
       </div>
 
       <div class="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20">
@@ -73,7 +81,9 @@ const reports = [
           Institutional Digital Asset & Capital Markets Intelligence
         </h1>
         <p class="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl">
-          Data-driven analysis, regulatory intelligence, and structured executive education bridging African digital finance with global institutional capital.
+          Data-driven analysis, regulatory intelligence, and structured
+          executive education bridging African digital finance with global
+          institutional capital.
         </p>
       </div>
     </section>
@@ -157,7 +167,9 @@ const reports = [
             Commission Bespoke Market or Regulatory Research
           </h2>
           <p class="text-slate-300 text-base leading-relaxed">
-            Our research team produces tailored due diligence reports, jurisdiction feasibility studies, and executive workshops for funds, banks, and fintech operators.
+            Our research team produces tailored due diligence reports,
+            jurisdiction feasibility studies, and executive workshops for funds,
+            banks, and fintech operators.
           </p>
         </div>
 
@@ -168,53 +180,6 @@ const reports = [
           Contact Research Team →
         </a>
       </section>
-            <!-- MARKET TRACKERS DIRECTORY -->
-      <section class="space-y-6 pt-4">
-        <div class="border-b border-slate-800 pb-4">
-          <p class="text-[#B7F000] font-bold text-xs uppercase tracking-widest mb-2">
-            External Intelligence Terminals
-          </p>
-          <h2 class="text-2xl sm:text-3xl font-semibold text-white">
-            Market Trackers
-          </h2>
-          <p class="text-slate-400 text-sm mt-1">
-            Direct access to global price aggregators, on-chain analytics, and liquidity terminals.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            { name: "CoinMarketCap", tag: "Market Cap & Rankings", url: "https://coinmarketcap.com/" },
-            { name: "CoinGecko", tag: "Token & Exchange Data", url: "https://www.coingecko.com/" },
-            { name: "TradingView", tag: "Technical Charting", url: "https://www.tradingview.com/" },
-            { name: "Glassnode", tag: "On-Chain Intelligence", url: "https://glassnode.com/" },
-            { name: "CryptoQuant", tag: "Exchange & Whale Flows", url: "https://cryptoquant.com/" },
-            { name: "DefiLlama", tag: "DeFi & RWA TVL", url: "https://defillama.com/" },
-            { name: "CoinGlass", tag: "Derivatives & Liquidations", url: "https://www.coinglass.com/" },
-            { name: "DEX Screener", tag: "DEX Liquidity & Pairs", url: "https://dexscreener.com" },
-            { name: "RootData", tag: "Web3 Venture & Deals", url: "https://rootdata.com" },
-          ].map((tracker) => (
-            <a
-              href={tracker.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="bg-slate-900/80 border border-slate-800 hover:border-[#B7F000] rounded-2xl p-5 flex items-center justify-between transition-all duration-300 group"
-            >
-              <div>
-                <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-[#B7F000] transition-colors">
-                  {tracker.name}
-                </h3>
-                <p class="text-xs text-slate-400 mt-0.5">{tracker.tag}</p>
-              </div>
-              <span class="w-9 h-9 rounded-xl bg-slate-950 border border-slate-800 group-hover:border-[#B7F000]/50 flex items-center justify-center text-slate-400 group-hover:text-[#B7F000] transition-colors shrink-0">
-                ↗
-              </span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-
     </div>
   </main>
 

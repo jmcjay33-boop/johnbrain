@@ -1,0 +1,70 @@
+
+
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const trackers = [
+  { name: "CoinMarketCap", tag: "Market Cap & Rankings", url: "https://coinmarketcap.com/" },
+  { name: "CoinGecko", tag: "Token & Exchange Data", url: "https://www.coingecko.com/" },
+  { name: "TradingView", tag: "Technical Charting", url: "https://www.tradingview.com/" },
+  { name: "Glassnode", tag: "On-Chain Intelligence", url: "https://glassnode.com/" },
+  { name: "CryptoQuant", tag: "Exchange & Whale Flows", url: "https://cryptoquant.com/" },
+  { name: "DefiLlama", tag: "DeFi & RWA TVL", url: "https://defillama.com/" },
+  { name: "CoinGlass", tag: "Derivatives & Liquidations", url: "https://www.coinglass.com/" },
+  { name: "DEX Screener", tag: "DEX Liquidity & Pairs", url: "https://dexscreener.com" },
+  { name: "RootData", tag: "Web3 Venture & Deals", url: "https://rootdata.com" },
+];
+---
+
+<Layout title="Market Trackers | JohnBrain">
+  <Navbar />
+
+  <main class="w-full bg-slate-950 text-white font-sans mt-12">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 space-y-10">
+      <!-- Page Header -->
+      <div class="border-b border-slate-800 pb-6">
+        <p class="text-[#B7F000] font-bold text-xs uppercase tracking-widest mb-2">
+          External Intelligence Terminals
+        </p>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white">
+          Market Trackers
+        </h1>
+        <p class="text-slate-400 text-base sm:text-lg mt-2 max-w-3xl">
+          Direct access to global price aggregators, on-chain analytics, and liquidity terminals.
+        </p>
+      </div>
+
+      <!-- 9 Trackers Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {trackers.map((tracker) => (
+          <a
+            href={tracker.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="selectable"
+            class="bg-slate-900/80 border border-slate-800 hover:border-[#B7F000] rounded-2xl p-6 flex items-center justify-between transition-all duration-300 group"
+          >
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-white group-hover:text-[#B7F000] transition-colors">
+                {tracker.name}
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1">{tracker.tag}</p>
+            </div>
+            <span class="w-10 h-10 rounded-xl bg-slate-950 border border-slate-800 group-hover:border-[#B7F000]/50 flex items-center justify-center text-slate-400 group-hover:text-[#B7F000] transition-colors shrink-0">
+              ↗
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <!-- External Link & Data Attribution Disclaimer -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 text-xs text-slate-400 leading-relaxed">
+        <strong class="text-slate-200 uppercase tracking-wider">Third-Party Terminal Notice:</strong> External market trackers open in a new window. Third-party platforms maintain independent data feeds, timestamps, and terms of service; links are provided strictly for market intelligence and do not constitute investment endorsements.
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

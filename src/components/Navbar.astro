@@ -6,7 +6,7 @@ import logoImage from '../assets/jb-logo.svg';
 <!-- src/components/Navbar.astro -->
 <header
   id="main-navbar"
-  class="w-full sticky top-0 pt-1.5 z-50 font-sans transition-colors duration-300 
+  class="w-full sticky top-0 pt-1.5 z-50 font-sans transition-colors duration-300
   ease-in-out bg-transparent"
 >
   <div class="max-w-7xl md:mx-11 px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -302,6 +302,15 @@ import logoImage from '../assets/jb-logo.svg';
             />
           </svg>
         </a>
+        <a
+          href="/mkt-tracker"
+          class="inline-block ml-20 rounded-lg border border-[#800020] bg-transparent
+           px-4 py-1.5 text-sm font-medium text-[#800020] hover:bg-[#800020]
+            hover:text-white transition-all duration-300 cursor-pointer"
+          data-cursor="selectable"
+        >
+          Market Tracker
+        </a>
       </div>
 
       <!-- Mobile Hamburger Icon Button -->
@@ -538,6 +547,16 @@ import logoImage from '../assets/jb-logo.svg';
         />
       </svg>
     </a>
+   <a
+  href="/mkt-tracker"
+  class="block w-full rounded-lg border border-[#C93B5B] bg-transparent
+   px-4 py-2.5 text-center text-sm font-semibold text-[#E86F8A] hover:bg-[#800020]
+    hover:border-[#800020] hover:text-white active:scale-[0.98] transition-all duration-200 cursor-pointer"
+  data-cursor="selectable"
+>
+  Market Tracker
+</a>
+
   </div>
 </header>
 

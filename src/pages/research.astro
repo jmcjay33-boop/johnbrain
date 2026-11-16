@@ -168,6 +168,52 @@ const reports = [
           Contact Research Team →
         </a>
       </section>
+            <!-- MARKET TRACKERS DIRECTORY -->
+      <section class="space-y-6 pt-4">
+        <div class="border-b border-slate-800 pb-4">
+          <p class="text-[#B7F000] font-bold text-xs uppercase tracking-widest mb-2">
+            External Intelligence Terminals
+          </p>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-white">
+            Market Trackers
+          </h2>
+          <p class="text-slate-400 text-sm mt-1">
+            Direct access to global price aggregators, on-chain analytics, and liquidity terminals.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            { name: "CoinMarketCap", tag: "Market Cap & Rankings", url: "https://coinmarketcap.com/" },
+            { name: "CoinGecko", tag: "Token & Exchange Data", url: "https://www.coingecko.com/" },
+            { name: "TradingView", tag: "Technical Charting", url: "https://www.tradingview.com/" },
+            { name: "Glassnode", tag: "On-Chain Intelligence", url: "https://glassnode.com/" },
+            { name: "CryptoQuant", tag: "Exchange & Whale Flows", url: "https://cryptoquant.com/" },
+            { name: "DefiLlama", tag: "DeFi & RWA TVL", url: "https://defillama.com/" },
+            { name: "CoinGlass", tag: "Derivatives & Liquidations", url: "https://www.coinglass.com/" },
+            { name: "DEX Screener", tag: "DEX Liquidity & Pairs", url: "https://dexscreener.com" },
+            { name: "RootData", tag: "Web3 Venture & Deals", url: "https://rootdata.com" },
+          ].map((tracker) => (
+            <a
+              href={tracker.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-slate-900/80 border border-slate-800 hover:border-[#B7F000] rounded-2xl p-5 flex items-center justify-between transition-all duration-300 group"
+            >
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-[#B7F000] transition-colors">
+                  {tracker.name}
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">{tracker.tag}</p>
+              </div>
+              <span class="w-9 h-9 rounded-xl bg-slate-950 border border-slate-800 group-hover:border-[#B7F000]/50 flex items-center justify-center text-slate-400 group-hover:text-[#B7F000] transition-colors shrink-0">
+                ↗
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
 
     </div>
   </main>

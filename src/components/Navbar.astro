@@ -6,10 +6,9 @@ import logoImage from '../assets/jb-logo.svg';
 <!-- src/components/Navbar.astro -->
 <header
   id="main-navbar"
-  class="w-full sticky top-0 pt-1.5 z-50 font-sans transition-colors duration-300
-  ease-in-out bg-transparent"
+  class="w-full sticky top-0 pt-1.5 z-50 font-sans transition-colors duration-300 ease-in-out bg-transparent"
 >
-  <div class="max-w-7xl md:mx-11 px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
     <!-- 1. Left Section: Logo -->
     <a href="/" class="logo-link transition-colors cursor-pointer shrink-0">
       <Image
@@ -22,30 +21,25 @@ import logoImage from '../assets/jb-logo.svg';
     </a>
 
     <!-- 2. Middle Section: Centered Desktop Links -->
-    <nav class="hidden md:flex items-center justify-center gap-8 font-semibold text-[17px]">
+    <nav class="hidden lg:flex items-center justify-center gap-6 xl:gap-8 font-semibold text-[16px]">
       <a
         href="/"
-        class="hover:text-[#B7F000] transition-colors cursor-pointer"
+        class="hover:text-[#B7F000] transition-colors cursor-pointer whitespace-nowrap"
         data-cursor="selectable"
       >
         Home
       </a>
 
-      <!-- About Us Dropdown -->
+      <!-- About Us Dropdown (Fixed: removed invalid <button> wrapping <a>) -->
       <div class="relative group py-2">
-        <button
-          class="hover:text-[#B7F000] transition-colors flex items-center gap-1 cursor-pointer"
+        <a
+          href="/services/services"
+          class="hover:text-[#B7F000] transition-colors flex items-center gap-1 cursor-pointer whitespace-nowrap"
           data-cursor="selectable"
         >
-          <a
-            href="/services/services"
-            class="hover:text-[#B7F000] transition-colors cursor-pointer"
-            data-cursor="selectable"
-          >
-            About Us
-          </a>
+          <span>About Us</span>
           <svg
-            class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform duration-1000"
+            class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform duration-500"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -57,19 +51,15 @@ import logoImage from '../assets/jb-logo.svg';
               d="M19 9l-7 7-7-7"
             ></path>
           </svg>
-        </button>
+        </a>
 
-        <!-- Desktop Dropdown Menu (Vertical List) -->
+        <!-- Desktop Dropdown Menu -->
         <div
-          class="absolute left-0 mt-2 w-112.5 bg-[#36430b] shadow-md opacity-0
-        invisible group-hover:opacity-100 group-hover:visible transition-all duration-1000 z-50
-        font-semibold flex px-4 py-2 flex-col gap-1"
+          class="absolute left-0 mt-2 w-[320px] bg-[#36430b] shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 font-semibold flex px-4 py-2 flex-col gap-1 rounded-lg"
         >
           <a
             href="/about/company"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-['']
-              hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
             data-cursor="selectable"
           >
             The Company
@@ -77,8 +67,7 @@ import logoImage from '../assets/jb-logo.svg';
 
           <a
             href="/services/compliance"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
             data-cursor="selectable"
           >
             Board of Directors
@@ -86,8 +75,7 @@ import logoImage from '../assets/jb-logo.svg';
 
           <a
             href="/about/mgt-team"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
             data-cursor="selectable"
           >
             Management Team
@@ -95,31 +83,24 @@ import logoImage from '../assets/jb-logo.svg';
 
           <a
             href="/services/ma"
-            class="px-3 py-2 rounded-lg hover:transition-all hover:ease-in text-slate-300
-             before:content-[''] hover:before:content-['——_'] before:transition-all
-             hover:px-14 hover:text-[#B7F000] cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
             data-cursor="selectable"
           >
             Contact Us
           </a>
         </div>
       </div>
+
       <!-- Subsidiaries Dropdown -->
       <div class="relative group py-2">
-        <button
-          class="hover:text-[#B7F000] transition-colors flex items-center gap-1 cursor-pointer"
+        <a
+          href="/subsidiaries/investment"
+          class="hover:text-[#B7F000] transition-colors flex items-center gap-1 cursor-pointer whitespace-nowrap"
           data-cursor="selectable"
         >
-          <a
-            href="/subsidiaries/investment"
-            class="hover:text-[#B7F000] transition-colors cursor-pointer"
-            data-cursor="selectable"
-          >
-            Subsidiaries
-          </a>
-
+          <span>Subsidiaries</span>
           <svg
-            class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform duration-1000"
+            class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform duration-500"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -131,40 +112,35 @@ import logoImage from '../assets/jb-logo.svg';
               d="M19 9l-7 7-7-7"
             ></path>
           </svg>
-        </button>
+        </a>
 
-        <!-- Desktop Dropdown Menu (Vertical List) -->
+        <!-- Desktop Dropdown Menu -->
         <div
-          class="absolute left-0 mt-2 w-112.5 bg-[#36430b] shadow-md opacity-0
-        invisible group-hover:opacity-100 group-hover:visible transition-all duration-1000 z-50
-        font-semibold flex px-4 py-2 flex-col gap-1"
+          class="absolute left-0 mt-2 w-112.5 bg-[#36430b] shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 font-semibold flex px-4 py-3 flex-col gap-2 rounded-lg"
         >
-          <span class="text-white font-mono">
+          <span class="text-white font-mono text-sm">
             The Group operates through three principal subsidiaries:
           </span>
           <a
             href="/subsidiaries/investment"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-['']
-              hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-6 transition-all text-sm text-slate-300 hover:text-[#B7F000] cursor-pointer"
             data-cursor="selectable"
           >
             <span class="text-[#B7F000] underline font-mono font-black">
               JOHNBRAIN INVESTMENT LIMITED:
-            </span>{' '}
+            </span>{" "}
             Focused on digital asset investment, trading, wealth management,
             portfolio administration and investment advisory services.
           </a>
 
           <a
             href="/subsidiaries/tokens"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-6 transition-all text-sm text-slate-300 hover:text-[#B7F000] cursor-pointer"
             data-cursor="selectable"
           >
             <span class="text-[#B7F000] underline font-mono font-black">
               JOHNBRAIN TOKENS LIMITED:
-            </span>{' '}
+            </span>{" "}
             Focused on digital asset issuance, tokenisation, digital investment
             offerings, fundraising platforms and the distribution of eligible
             digital investment instruments.
@@ -172,13 +148,12 @@ import logoImage from '../assets/jb-logo.svg';
 
           <a
             href="/subsidiaries/properties"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-6 transition-all text-sm text-slate-300 hover:text-[#B7F000] cursor-pointer"
             data-cursor="selectable"
           >
             <span class="text-[#B7F000] font-mono underline font-black">
               JOHNBRAIN PROPERTIES LIMITED:
-            </span>{' '}
+            </span>{" "}
             Focused on technology-enabled real estate transactions, digital
             property marketplaces, property investment facilitation, property
             management and blockchain-enabled real estate solutions.
@@ -186,23 +161,16 @@ import logoImage from '../assets/jb-logo.svg';
         </div>
       </div>
 
-      <!-- New Core Service Link -->
-
+      <!-- Core Services Dropdown -->
       <div class="relative group py-2">
-        <button
-          class="hover:text-[#B7F000] transition-colors flex items-center gap-1 cursor-pointer"
+        <a
+          href="/subsidiaries/investment"
+          class="hover:text-[#B7F000] transition-colors flex items-center gap-1 cursor-pointer whitespace-nowrap"
           data-cursor="selectable"
         >
-          <a
-            href="/subsidiaries/investment"
-            class="hover:text-[#B7F000] transition-colors cursor-pointer"
-            data-cursor="selectable"
-          >
-            Core Services
-          </a>
-
+          <span>Core Services</span>
           <svg
-            class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform duration-1000"
+            class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition-transform duration-500"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -214,19 +182,14 @@ import logoImage from '../assets/jb-logo.svg';
               d="M19 9l-7 7-7-7"
             ></path>
           </svg>
-        </button>
-
-        <!-- Desktop Dropdown Menu (Vertical List) -->
+        </a>
+                <!-- Desktop Dropdown Menu -->
         <div
-          class="absolute left-0 mt-2 w-112.5 bg-[#36430b] shadow-md opacity-0
-        invisible group-hover:opacity-100 group-hover:visible transition-all duration-1000 z-50
-        font-semibold flex px-4 py-2 flex-col gap-1"
+          class="absolute right-0 mt-2 w-105 bg-[#36430b] shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 font-semibold flex px-4 py-2 flex-col gap-1 rounded-lg"
         >
           <a
             href="/services/vasset"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-['']
-              hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
             data-cursor="selectable"
           >
             Virtual Asset Exchange & Trading Services
@@ -234,8 +197,7 @@ import logoImage from '../assets/jb-logo.svg';
 
           <a
             href="/services/acustody"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
             data-cursor="selectable"
           >
             Virtual Asset Custody & Wallet Services
@@ -243,32 +205,31 @@ import logoImage from '../assets/jb-logo.svg';
 
           <a
             href="/services/ainsurance"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
             data-cursor="selectable"
           >
             Digital Asset Issuance & Tokenisation Services
           </a>
+
           <a
             href="/services/atransfer"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
             data-cursor="selectable"
           >
             Virtual Asset Transfer & Payment Services
           </a>
+
           <a
             href="/services/awealth"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
             data-cursor="selectable"
           >
             Advisory, Wealth & Portfolio Services Linked to Digital Assets
           </a>
+
           <a
             href="/services/properties"
-            class="px-3 py-2 rounded-lg hover:px-14 hover:transition-all hover:ease-in
-             text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] before:transition-all cursor-pointer"
+            class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
             data-cursor="selectable"
           >
             Properties businesses
@@ -277,14 +238,13 @@ import logoImage from '../assets/jb-logo.svg';
       </div>
     </nav>
 
-    <!-- 3. Right Section: Client Access (Desktop) + Mobile Hamburger -->
-    <div class="flex items-center gap-4 shrink-0">
-      <div class="hidden md:flex items-center gap-4">
+    <!-- 3. Right Section: Client Access & Market Tracker (Desktop) + Mobile Hamburger -->
+    <div class="flex items-center gap-3 shrink-0">
+      <div class="hidden lg:flex items-center gap-3">
         <div class="h-6 w-px bg-slate-200"></div>
         <a
           href="/clientele"
-          class="inline-flex items-center gap-2 bg-slate-900
-           hover:bg-[#B7F000] text-white hover:text-slate-950 border border-slate-800 hover:border-[#B7F000] font-semibold text-sm px-5 py-2.5 rounded-full shadow-sm transition-all duration-300 cursor-pointer"
+          class="inline-flex items-center gap-2 bg-slate-900 hover:bg-[#B7F000] text-white hover:text-slate-950 border border-slate-800 hover:border-[#B7F000] font-semibold text-sm px-4 py-2 rounded-full shadow-sm transition-all duration-300 cursor-pointer whitespace-nowrap"
           data-cursor="selectable"
         >
           <span>Client Access</span>
@@ -302,11 +262,11 @@ import logoImage from '../assets/jb-logo.svg';
             />
           </svg>
         </a>
+
+        <!-- Fixed: removed ml-20 so it never overflows the desktop header -->
         <a
           href="/mkt-tracker"
-          class="inline-block ml-20 rounded-lg border border-[#800020] bg-transparent
-           px-4 py-1.5 text-sm font-medium text-[#800020] hover:bg-[#800020]
-            hover:text-white transition-all duration-300 cursor-pointer"
+          class="inline-block rounded-lg border border-[#800020] bg-transparent px-4 py-2 text-sm font-semibold text-[#800020] hover:bg-[#800020] hover:text-white transition-all duration-300 cursor-pointer whitespace-nowrap"
           data-cursor="selectable"
         >
           Market Tracker
@@ -316,7 +276,7 @@ import logoImage from '../assets/jb-logo.svg';
       <!-- Mobile Hamburger Icon Button -->
       <button
         id="menu-toggle-btn"
-        class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all cursor-pointer"
+        class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all cursor-pointer"
         data-cursor="selectable"
         aria-label="Toggle Navigation Menu"
       >
@@ -354,12 +314,11 @@ import logoImage from '../assets/jb-logo.svg';
   <!-- 4. Mobile Menu Drawer Panel -->
   <div
     id="mobile-menu-panel"
-    class="hidden md:hidden bg-slate-800 absolute top-full left-0 w-full max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain z-40 px-4 py-4 pb-8 space-y-2 shadow-md"
+    class="hidden lg:hidden bg-slate-800 absolute top-full left-0 w-full max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain z-40 px-4 py-4 pb-8 space-y-2 shadow-md"
   >
     <a
       href="/"
-      class="block px-4 py-2.5 rounded-xl text-base font-bold text-white
-       hover:bg-slate-50 hover:text-[#B7F000]"
+      class="block px-4 py-2.5 rounded-xl text-base font-bold text-white hover:bg-slate-700 hover:text-[#B7F000]"
     >
       Home
     </a>
@@ -367,9 +326,7 @@ import logoImage from '../assets/jb-logo.svg';
     <!-- About Us Dropdown -->
     <div class="space-y-1 mobile-submenu-group">
       <button
-        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5
-       rounded-xl text-base font-bold text-white hover:bg-slate-100 hover:text-[#B7F000]
-        cursor-pointer"
+        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-bold text-white hover:bg-slate-700 hover:text-[#B7F000] cursor-pointer"
       >
         <span>About Us</span>
         <svg
@@ -387,28 +344,28 @@ import logoImage from '../assets/jb-logo.svg';
         </svg>
       </button>
 
-      <div class="mobile-submenu-items hidden rounded-xl pl-4 border-l-2 border-slate-200 space-y-1 py-1 flex-col">
+      <div class="mobile-submenu-items hidden rounded-xl pl-4 border-l-2 border-slate-500 space-y-1 py-1 flex-col">
         <a
           href="/about/company"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           The Company
         </a>
         <a
           href="/services/compliance"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           Board of Directors
         </a>
         <a
           href="/about/mgt-team"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           Management Team
         </a>
         <a
           href="/services/ma"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           Contact Us
         </a>
@@ -418,8 +375,7 @@ import logoImage from '../assets/jb-logo.svg';
     <!-- Subsidiaries Dropdown -->
     <div class="space-y-1 mobile-submenu-group">
       <button
-        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5
-       rounded-xl text-base font-bold text-white hover:bg-slate-100 hover:text-[#B7F000] cursor-pointer"
+        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-bold text-white hover:bg-slate-700 hover:text-[#B7F000] cursor-pointer"
       >
         <span>Subsidiaries</span>
         <svg
@@ -437,34 +393,32 @@ import logoImage from '../assets/jb-logo.svg';
         </svg>
       </button>
 
-      <div class="mobile-submenu-items hidden rounded-xl pl-4 border-l-2 border-slate-200 space-y-1 py-1 flex-col">
+      <div class="mobile-submenu-items hidden rounded-xl pl-4 border-l-2 border-slate-500 space-y-1 py-1 flex-col">
         <a
           href="/subsidiaries/investment"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white
-           hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           JohnBrain Investment Limited
         </a>
         <a
           href="/subsidiaries/tokens"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           JohnBrain Tokens Limited
         </a>
         <a
           href="/subsidiaries/properties"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           JohnBrain Properties Limited
         </a>
       </div>
     </div>
-    <!-- core services drop down -->
-    <!-- Subsidiaries Dropdown -->
+
+    <!-- Core Services Dropdown -->
     <div class="space-y-1 mobile-submenu-group">
       <button
-        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5
-       rounded-xl text-base font-bold text-white hover:bg-slate-100 hover:text-[#B7F000] cursor-pointer"
+        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-bold text-white hover:bg-slate-700 hover:text-[#B7F000] cursor-pointer"
       >
         <span>Core Services</span>
         <svg
@@ -482,84 +436,80 @@ import logoImage from '../assets/jb-logo.svg';
         </svg>
       </button>
 
-      <div class="mobile-submenu-items hidden rounded-xl pl-4 border-l-2 border-slate-200 space-y-1 py-1 flex-col">
+      <div class="mobile-submenu-items hidden rounded-xl pl-4 border-l-2 border-slate-500 space-y-1 py-1 flex-col">
         <a
           href="/services/vasset"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white
-           hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           Virtual Asset Exchange & Trading Services
         </a>
         <a
           href="/services/acustody"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           Virtual Asset Custody & Wallet Services
         </a>
         <a
           href="/services/ainsurance"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           Digital Asset Issuance & Tokenisation Services
         </a>
         <a
           href="/services/atransfer"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           Virtual Asset Transfer & Payment Services
         </a>
         <a
           href="/services/awealth"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           Advisory, Wealth & Portfolio Services Linked to Digital Assets
         </a>
         <a
           href="/services/properties"
-          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-100 hover:text-[#B7F000]"
+          class="block px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-slate-700 hover:text-[#B7F000]"
         >
           Properties businesses
         </a>
       </div>
     </div>
 
-    <a
-      href="/clientele"
-      class="flex items-center justify-center gap-2 w-full mt-14 mb-8 bg-[#B7F000]
-       hover:bg-[#a6da00] text-slate-950 border
-       border-[#B7F000] font-semibold text-[20px] px-5
-       py-3 rounded-md shadow-sm
-       transition-all duration-300 cursor-pointer"
-      data-cursor="selectable"
-    >
-      <span>Client Access</span>
-      <svg
-        class="w-4 h-4"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-        viewBox="0 0 24 24"
+    <div class="pt-6 space-y-3">
+      <a
+        href="/clientele"
+        class="flex items-center justify-center gap-2 w-full bg-[#B7F000] hover:bg-[#a6da00] text-slate-950 border border-[#B7F000] font-semibold text-[18px] px-5 py-3 rounded-md shadow-sm transition-all duration-300 cursor-pointer"
+        data-cursor="selectable"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-        />
-      </svg>
-    </a>
-   <a
-  href="/mkt-tracker"
-  class="block w-full rounded-lg border border-[#C93B5B] bg-transparent
-   px-4 py-2.5 text-center text-sm font-semibold text-[#E86F8A] hover:bg-[#800020]
-    hover:border-[#800020] hover:text-white active:scale-[0.98] transition-all 
-    duration-200 cursor-pointer"
-  data-cursor="selectable"
->
-  Market Tracker
-</a>
+        <span>Client Access</span>
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+          />
+        </svg>
+      </a>
 
+      <a
+        href="/mkt-tracker"
+        class="block w-full rounded-lg border border-[#C93B5B] bg-transparent px-4 py-2.5 text-center text-sm font-semibold text-[#E86F8A] hover:bg-[#800020] hover:border-[#800020] hover:text-white active:scale-[0.98] transition-all duration-200 cursor-pointer"
+        data-cursor="selectable"
+      >
+        Market Tracker
+      </a>
+    </div>
   </div>
 </header>
+
+
 
 <script>
   // --- 1. Mobile Menu & Submenu Logic ---

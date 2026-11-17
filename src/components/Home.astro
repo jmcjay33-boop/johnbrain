@@ -2,6 +2,8 @@
 // 1. ALL imports and JavaScript arrays go together inside this SINGLE block at the very top
 import { Image } from 'astro:assets';
 import homebg from '../assets/homebg.jpg';
+import homebg2 from '../assets/homebg2.jpg';
+import homebg3 from '../assets/homebg3.jpg';
 import Footer from '../components/Footer.astro';
 
 const services = [
@@ -22,41 +24,52 @@ const tickerItems = [...services, ...services, ...services];
 <!-- 2. Hero Background Image Section -->
 <!-- 1. Modified Section 1 with Dynamic Fade Animations -->
 <section class="relative w-full h-[90vh] overflow-hidden mt-12">
+  <!-- 1. THREE-IMAGE CROSSFADE BACKGROUND LAYER -->
   <div class="absolute inset-0 w-full h-full z-0 bg-slate-950">
-  <Image
-    src={homebg}
-    alt="Global Financial Executives Boardroom"
-    class="w-full h-full object-cover object-center"
-    loading="eager"
-  />
-  <!-- Gentle uniform dark tint: preserves the entire image while softening bright glare -->
-  <div class="absolute inset-0 bg-slate-800/15"></div>
-</div>
+    <Image
+      src={homebg}
+      alt="Global Financial Executives Boardroom"
+      class="hero-bg-slide absolute inset-0 w-full h-full object-cover object-center opacity-100 transition-opacity duration-1000 ease-in-out"
+      loading="eager"
+    />
+    <Image
+      src={homebg2}
+      alt="Digital Asset & Capital Markets Infrastructure"
+      class="hero-bg-slide absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-1000 ease-in-out"
+      loading="eager"
+    />
+    <Image
+      src={homebg3}
+      alt="Institutional Fintech & Investment Advisory"
+      class="hero-bg-slide absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-1000 ease-in-out"
+      loading="eager"
+    />
 
+    <!-- Gentle uniform dark tint: preserves the entire image while softening bright glare -->
+    <div class="absolute inset-0 bg-slate-800/15 z-10 pointer-events-none"></div>
+  </div>
 
-  <!-- FIXED LAYER: Content area shifted to the top ('items-start' + 'pt-24' pushes text up away from center) -->
-  <!-- UPDATED LINE: Changed pt-24 to pt-8 to pull everything significantly higher up -->
-  <div class="relative max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-start pt-8 z-10">
-    <!-- Added id="hero-content" and transition utility so Javascript can fade it out cleanly -->
+  <!-- 2. FIXED TOP CONTENT LAYER -->
+  <div class="relative max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-start pt-8 z-20">
     <div
       id="hero-content"
       class="max-w-3xl space-y-8 transition-opacity duration-300 ease-out"
     >
-      <!-- Headline Text Layer -->
+      <!-- Rotating Headline Text Layer -->
       <h1
-        class="text-4xl sm:text-5xl text-gray-800 md:text-6xl font-bold tracking-tight
-      leading-tight drop-shadow-md"
+        id="hero-caption"
+        class="text-4xl sm:text-5xl text-gray-800 md:text-6xl font-bold tracking-tight 
+        leading-tight drop-shadow-md transition-opacity duration-1000 ease-in-out min-h-[3.6em]
+         sm:min-h-[2.4em]"
       >
-        Unlocking Opportunities in the Digital Asset Economy.
+        Unlocking the Future of Digital Finance.
       </h1>
 
-      <!-- Partner With Us Button Block -->
+      <!-- Learn More Button Block -->
       <div class="pt-2">
         <a
           href="/research"
-          class="inline-flex items-center justify-center px-8 py-4 rounded-xl
-     bg-[#B7F000] text-slate-950 font-bold text-lg hover:bg-[#daeaa3]
-     transition-all shadow-xl cursor-none"
+          class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#B7F000] text-slate-950 font-bold text-lg hover:bg-[#daeaa3] transition-all shadow-xl"
           data-cursor="selectable"
         >
           Learn More
@@ -462,14 +475,13 @@ const tickerItems = [...services, ...services, ...services];
 </style>
 
 <script>
+  // 1. EXISTING SCROLL FADE LOGIC
   const heroContent = document.getElementById('hero-content');
 
   window.addEventListener('scroll', () => {
     if (!heroContent) return;
 
     const scrollPosition = window.scrollY;
-
-    // Calculates a fade factor. By 250px of scroll travel, the text becomes completely transparent (opacity: 0)
     let opacityFactor = 1 - scrollPosition / 250;
 
     if (opacityFactor < 0) {
@@ -478,4 +490,53 @@ const tickerItems = [...services, ...services, ...services];
 
     heroContent.style.opacity = opacityFactor.toString();
   });
+
+  // 2. CONTINUOUS 8-CAPTION FIZZLE ROTATOR
+  const captions = [
+    "Unlocking the Future of Digital Finance.",
+    "Bridging Traditional Finance and the Digital Asset Economy.",
+    "Redefining Wealth Creation in the Digital Era.",
+    "Your Gateway to the Future of Digital Assets.",
+    "Transforming Assets. Unlocking Opportunities.",
+    "Building Wealth Through Digital Innovation.",
+    "Where Financial Intelligence Meets Digital Innovation.",
+    "Advancing Capital Markets Through Digital Assets."
+  ];
+
+  const captionEl = document.getElementById('hero-caption');
+  let captionIndex = 0;
+
+  if (captionEl) {
+    setInterval(() => {
+      // Fade current text out
+      captionEl.classList.remove('opacity-100');
+      captionEl.classList.add('opacity-0');
+
+      // Swap text once faded out, then fade new text in
+      setTimeout(() => {
+        captionIndex = (captionIndex + 1) % captions.length;
+        captionEl.textContent = captions[captionIndex];
+        captionEl.classList.remove('opacity-0');
+        captionEl.classList.add('opacity-100');
+      }, 700); // Matches 'duration-700' on #hero-caption
+    }, 4500); // Changes caption every 4.5 seconds
+  }
+
+  // 3. CONTINUOUS 3-IMAGE CROSSFADE ROTATOR
+  const bgSlides = document.querySelectorAll('.hero-bg-slide');
+  let slideIndex = 0;
+
+  if (bgSlides.length > 1) {
+    setInterval(() => {
+      // Hide current image
+      bgSlides[slideIndex].classList.remove('opacity-100');
+      bgSlides[slideIndex].classList.add('opacity-0');
+
+      // Advance to next image and fade it in
+      slideIndex = (slideIndex + 1) % bgSlides.length;
+      bgSlides[slideIndex].classList.remove('opacity-0');
+      bgSlides[slideIndex].classList.add('opacity-100');
+    }, 6000); // Crossfades to next image every 6 seconds
+  }
 </script>
+

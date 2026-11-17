@@ -10,12 +10,17 @@ import logoImage from '../assets/jb-logo.svg';
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
     <!-- 1. Left Section: Logo -->
-    <a href="/" class="logo-link transition-colors cursor-pointer shrink-0">
+    <!-- 1. Left Section: Logo -->
+    <a
+      href="/"
+      class="logo-link flex items-center h-16 overflow-hidden cursor-pointer shrink-0"
+    >
       <Image
         id="navbar-logo"
         src={logoImage}
-        alt="Company Name Logo"
+        alt="JohnBrain Logo"
         loading="eager"
+        class=" w-auto object-cover scale-110"
         data-cursor="selectable"
       />
     </a>
@@ -54,9 +59,7 @@ import logoImage from '../assets/jb-logo.svg';
         </a>
 
         <!-- Desktop Dropdown Menu -->
-        <div
-          class="absolute left-0 mt-2 w-[320px] bg-[#36430b] shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 font-semibold flex px-4 py-2 flex-col gap-1 rounded-lg"
-        >
+        <div class="absolute left-0 mt-2 w-[320px] bg-[#36430b] shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 font-semibold flex px-4 py-2 flex-col gap-1 rounded-lg">
           <a
             href="/about/company"
             class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
@@ -115,9 +118,7 @@ import logoImage from '../assets/jb-logo.svg';
         </a>
 
         <!-- Desktop Dropdown Menu -->
-        <div
-          class="absolute left-0 mt-2 w-112.5 bg-[#36430b] shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 font-semibold flex px-4 py-3 flex-col gap-2 rounded-lg"
-        >
+        <div class="absolute left-0 mt-2 w-112.5 bg-[#36430b] shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 font-semibold flex px-4 py-3 flex-col gap-2 rounded-lg">
           <span class="text-white font-mono text-sm">
             The Group operates through three principal subsidiaries:
           </span>
@@ -128,7 +129,7 @@ import logoImage from '../assets/jb-logo.svg';
           >
             <span class="text-[#B7F000] underline font-mono font-black">
               JOHNBRAIN INVESTMENT LIMITED:
-            </span>{" "}
+            </span>{' '}
             Focused on digital asset investment, trading, wealth management,
             portfolio administration and investment advisory services.
           </a>
@@ -140,7 +141,7 @@ import logoImage from '../assets/jb-logo.svg';
           >
             <span class="text-[#B7F000] underline font-mono font-black">
               JOHNBRAIN TOKENS LIMITED:
-            </span>{" "}
+            </span>{' '}
             Focused on digital asset issuance, tokenisation, digital investment
             offerings, fundraising platforms and the distribution of eligible
             digital investment instruments.
@@ -153,7 +154,7 @@ import logoImage from '../assets/jb-logo.svg';
           >
             <span class="text-[#B7F000] font-mono underline font-black">
               JOHNBRAIN PROPERTIES LIMITED:
-            </span>{" "}
+            </span>{' '}
             Focused on technology-enabled real estate transactions, digital
             property marketplaces, property investment facilitation, property
             management and blockchain-enabled real estate solutions.
@@ -183,10 +184,8 @@ import logoImage from '../assets/jb-logo.svg';
             ></path>
           </svg>
         </a>
-                <!-- Desktop Dropdown Menu -->
-        <div
-          class="absolute right-0 mt-2 w-105 bg-[#36430b] shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 font-semibold flex px-4 py-2 flex-col gap-1 rounded-lg"
-        >
+        <!-- Desktop Dropdown Menu -->
+        <div class="absolute right-0 mt-2 w-105 bg-[#36430b] shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 font-semibold flex px-4 py-2 flex-col gap-1 rounded-lg">
           <a
             href="/services/vasset"
             class="px-3 py-2 rounded-lg hover:pl-8 transition-all text-slate-300 hover:text-[#B7F000] before:content-[''] hover:before:content-['——_'] cursor-pointer"
@@ -325,9 +324,7 @@ import logoImage from '../assets/jb-logo.svg';
 
     <!-- About Us Dropdown -->
     <div class="space-y-1 mobile-submenu-group">
-      <button
-        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-bold text-white hover:bg-slate-700 hover:text-[#B7F000] cursor-pointer"
-      >
+      <button class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-bold text-white hover:bg-slate-700 hover:text-[#B7F000] cursor-pointer">
         <span>About Us</span>
         <svg
           class="mobile-submenu-arrow w-4 h-4 text-slate-400 transition-transform duration-150"
@@ -374,9 +371,7 @@ import logoImage from '../assets/jb-logo.svg';
 
     <!-- Subsidiaries Dropdown -->
     <div class="space-y-1 mobile-submenu-group">
-      <button
-        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-bold text-white hover:bg-slate-700 hover:text-[#B7F000] cursor-pointer"
-      >
+      <button class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-bold text-white hover:bg-slate-700 hover:text-[#B7F000] cursor-pointer">
         <span>Subsidiaries</span>
         <svg
           class="mobile-submenu-arrow w-4 h-4 text-slate-400 transition-transform duration-150"
@@ -417,9 +412,7 @@ import logoImage from '../assets/jb-logo.svg';
 
     <!-- Core Services Dropdown -->
     <div class="space-y-1 mobile-submenu-group">
-      <button
-        class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-bold text-white hover:bg-slate-700 hover:text-[#B7F000] cursor-pointer"
-      >
+      <button class="mobile-submenu-btn w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-bold text-white hover:bg-slate-700 hover:text-[#B7F000] cursor-pointer">
         <span>Core Services</span>
         <svg
           class="mobile-submenu-arrow w-4 h-4 text-slate-400 transition-transform duration-150"
@@ -508,8 +501,6 @@ import logoImage from '../assets/jb-logo.svg';
     </div>
   </div>
 </header>
-
-
 
 <script>
   // --- 1. Mobile Menu & Submenu Logic ---

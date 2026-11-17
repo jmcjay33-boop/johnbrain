@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import johnPhoto from '../../assets/ja.jpeg'; // Make sure your photo filename matches here
+import sundayPhoto from '../../assets/sa.jpeg'; // Make sure your photo filename matches here
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
@@ -47,10 +48,14 @@ const teamMembers = [
     name: 'Sunday Felicity Agbo',
     role: 'Chief Information Security Officer',
 
-    hasPhoto: false,
+    hasPhoto: true,
     bio: [
-      'Specialises in blockchain-enabled capital markets infrastructure, real-world asset tokenisation, and institutional digital asset offerings.',
-      'Leads product structuring and cross-border investor distribution.',
+      'Sunday Agbo is a distinguished technology executive, enterprise systems architect, and full-stack software engineer with over 15 years of extensive experience in technology leadership, financial-grade software engineering, enterprise infrastructure management, database administration, and cybersecurity.',
+      'He possesses deep expertise in developing and managing sophisticated technology ecosystems, with particular specialisation in financial technology, digital asset infrastructure, enterprise systems architecture, and information security governance. His technical competencies span the design and implementation of high-performance backend systems, real-time transaction processing engines, secure database environments, and integrated web and mobile platforms, leveraging modern programming technologies including Rust, Go, TypeScript, and Flutter.',
+      'Throughout his career, Sunday has demonstrated exceptional capacity for translating complex business and operational requirements into secure, scalable, and commercially viable technology solutions. He has provided strategic technology leadership across organisations, driving digital transformation, enterprise systems integration, infrastructure development, and cybersecurity initiatives. As a technology entrepreneur and co-founder, he has also led the conceptualisation, architecture, development, and deployment of production-grade technology platforms, including real-time telemetry, digital identity verification, and automated workflow management systems.',
+      'His professional experience further encompasses senior IT infrastructure and enterprise systems management roles within the telecommunications, hospitality, and technology consulting sectors. In these capacities, he has overseen mission-critical network infrastructure, enterprise security environments, Active Directory administration, ERP systems, database operations, and corporate communications infrastructure, supporting the technology requirements of major corporate organisations.',
+      'An Oracle Certified Associate (OCA) and a Computer Science graduate with an outstanding academic record, Sunday combines a strong technical and academic foundation with extensive practical experience in enterprise technology management and software development. His multidisciplinary capabilities, spanning executive-level technology governance and hands-on engineering execution, position him to provide effective leadership in the development and management of sophisticated digital financial infrastructures.',
+      'His expertise is particularly valuable in ensuring that digital asset platforms, investor onboarding systems, transaction processing infrastructure, and enterprise data environments are designed and operated in accordance with international best practices for information security, regulatory compliance, operational resilience, and technological innovation.',
     ],
   },
 ];
@@ -89,7 +94,7 @@ const teamMembers = [
               <div class="relative w-full aspect-4/5 bg-slate-950 overflow-hidden border-b border-slate-800">
                 {member.hasPhoto ? (
                   <Image
-                    src={johnPhoto}
+                    src={member.id=='John Sani Agbo.'? johnPhoto: sundayPhoto}
                     alt={member.name}
                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     loading="eager"

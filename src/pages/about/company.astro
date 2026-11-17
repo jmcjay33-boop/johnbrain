@@ -18,50 +18,59 @@ const objectives = [
 <Layout title="About Us | JohnBrain">
   <Navbar />
 
-  <main
-    class="w-full min-h-screen text-white font-sans mt-12 bg-cover bg-center bg-fixed bg-no-repeat"
-    style={`background-image: url(${aboutBg.src});`}
-  >
-    <!-- Light 25% tint so your background image stays vivid while white text remains sharp -->
-    <div class="w-full min-h-screen bg-black/25">
+  <main class="w-full min-h-screen bg-slate-950 text-white font-sans mt-12">
+    <div class="w-full min-h-screen">
       <!-- 1. About Us Overview Section -->
-      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16">
-        <div class="bg-black/45 backdrop-blur-xs border border-white/20 rounded-2xl p-8 sm:p-12">
-          <p class="text-[#B7F000] font-bold text-sm uppercase tracking-widest mb-6 drop-shadow">
-            About Us
-          </p>
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
+        <div class="bg-slate-900/90 border border-white/15 rounded-2xl overflow-hidden shadow-2xl">
+          <!-- Fully Visible, Uncovered Image Banner -->
+          <div class="w-full h-65 sm:h-95 lg:h-115 overflow-hidden border-b border-white/15">
+            <img
+              src={aboutBg.src}
+              alt="JOHNBRAIN Team and Digital Asset Strategy"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
 
-          <div class="space-y-6 text-xl md:text-2xl font-normal text-white leading-relaxed">
-            <p>
-              JOHNBRAIN is a digital financial services and investment group
-              focused on advancing participation in the global digital economy
-              through virtual asset services, digital investments, blockchain
-              technology and innovative financial solutions.
+          <!-- Clean, Crisp About Us Text Below the Image -->
+          <div class="p-8 sm:p-12">
+            <p class="text-[#B7F000] font-bold text-sm uppercase tracking-widest mb-6">
+              About Us
             </p>
-            <p>
-              Through its specialised subsidiaries, the Group provides services
-              spanning digital asset investment and management, virtual asset
-              trading, digital capital raising, real-world asset tokenisation,
-              digital securities distribution, investment advisory and other
-              technology-enabled financial services.
-            </p>
-            <p>
-              JOHNBRAIN is driven by innovation, regulatory compliance, investor
-              protection, transparency and sound corporate governance, with a
-              strategic focus on bridging traditional finance and the emerging
-              digital economy.
-            </p>
+
+            <div class="space-y-6 text-xl md:text-2xl font-normal text-white leading-relaxed">
+              <p>
+                JOHNBRAIN is a digital financial services and investment group
+                focused on advancing participation in the global digital economy
+                through virtual asset services, digital investments, blockchain
+                technology and innovative financial solutions.
+              </p>
+              <p>
+                Through its specialised subsidiaries, the Group provides
+                services spanning digital asset investment and management,
+                virtual asset trading, digital capital raising, real-world asset
+                tokenisation, digital securities distribution, investment
+                advisory and other technology-enabled financial services.
+              </p>
+              <p>
+                JOHNBRAIN is driven by innovation, regulatory compliance,
+                investor protection, transparency and sound corporate
+                governance, with a strategic focus on bridging traditional
+                finance and the emerging digital economy.
+              </p>
+            </div>
           </div>
         </div>
       </section>
+
       <!-- 2. Strategic Objectives Section -->
       <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div class="bg-black/45 backdrop-blur-xs border border-white/20 rounded-2xl p-8 sm:p-12">
+        <div class="bg-slate-900/90 border border-white/15 rounded-2xl p-8 sm:p-12">
           <div class="max-w-3xl mb-10">
-            <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3 drop-shadow">
+            <p class="text-[#B7F000] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">
               Corporate Direction
             </p>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4 drop-shadow">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
               Strategic Objectives
             </h2>
             <p class="text-slate-200 text-lg leading-relaxed">
@@ -74,7 +83,7 @@ const objectives = [
             {objectives.map((item, index) => (
               <div
                 class:list={[
-                  'bg-black/48 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-6 transition-colors duration-300 flex items-start gap-4',
+                  'bg-slate-950/70 border border-slate-800 hover:border-[#B7F000]/50 rounded-2xl p-6 transition-colors duration-300 flex items-start gap-4',
                   index === objectives.length - 1 && 'md:col-span-2',
                 ]}
               >

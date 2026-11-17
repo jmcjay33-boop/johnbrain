@@ -6,21 +6,23 @@ import logoImage from '../assets/jb-logo.png';
 <!-- src/components/Navbar.astro -->
 <header
   id="main-navbar"
-  class="w-full sticky top-0 pt-1.5 z-50 font-sans transition-colors duration-300 ease-in-out bg-transparent"
+  class="w-full sticky top-0 pt-1.5 z-50 font-sans transition-colors duration-300
+  ease-in-out bg-transparent"
 >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-    <!-- 1. Left Section: Logo -->
-    <!-- 1. Left Section: Logo -->
+  <!-- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4"> -->
+  <!-- Update your header wrapper from h-20 to h-32 -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-32 flex items-center justify-between gap-4">
+    <!-- Logo scaled by height (h-28 = 112px tall) -->
     <a
       href="/"
-      class="logo-link flex items-center h-16 overflow-hidden cursor-pointer shrink-0"
+      class="logo-link flex items-center h-28 overflow-hidden cursor-pointer shrink-0"
     >
-      <Image
+      <img
         id="navbar-logo"
-        src={logoImage}
+        src={logoImage.src}
         alt="JohnBrain Logo"
         loading="eager"
-        class=" w-auto object-cover scale-110"
+        class="h-full w-auto object-contain scale-125"
         data-cursor="selectable"
       />
     </a>

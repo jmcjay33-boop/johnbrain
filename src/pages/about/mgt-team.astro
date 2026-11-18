@@ -46,7 +46,7 @@ const teamMembers = [
   {
     id: 'Sunday Felicity Agbo',
     name: 'Sunday Felicity Agbo',
-    role: 'Chief Technology Office',
+    role: 'Chief Technology Officer',
 
     hasPhoto: true,
     bio: [
@@ -94,7 +94,9 @@ const teamMembers = [
               <div class="relative w-full aspect-4/5 bg-slate-950 overflow-hidden border-b border-slate-800">
                 {member.hasPhoto ? (
                   <Image
-                    src={member.id=='John Sani Agbo.'? johnPhoto: sundayPhoto}
+                    src={
+                      member.id == 'John Sani Agbo.' ? johnPhoto : sundayPhoto
+                    }
                     alt={member.name}
                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     loading="eager"
@@ -162,6 +164,7 @@ const teamMembers = [
             </div>
 
             <!-- White X Close Button -->
+
             <button
               type="button"
               data-close-modal

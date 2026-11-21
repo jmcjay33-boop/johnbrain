@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import johnPhoto from '../../assets/ja.jpeg'; // Make sure your photo filename matches here
-import sundayPhoto from '../../assets/sa.jpeg'; // Make sure your photo filename matches here
+import johnPhoto from '../../assets/ja.jpeg'; 
+import sundayPhoto from '../../assets/sa.jpeg'; 
+import okechukwuPhoto from '../../assets/oe.jpeg'; 
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
@@ -50,13 +51,24 @@ const teamMembers = [
 
     hasPhoto: true,
     bio: [
-      'Sunday Agbo is a distinguished technology executive, enterprise systems architect, and full-stack software engineer with over 15 years of extensive experience in technology leadership, financial-grade software engineering, enterprise infrastructure management, database administration, and cybersecurity.',
-      'He possesses deep expertise in developing and managing sophisticated technology ecosystems, with particular specialisation in financial technology, digital asset infrastructure, enterprise systems architecture, and information security governance. His technical competencies span the design and implementation of high-performance backend systems, real-time transaction processing engines, secure database environments, and integrated web and mobile platforms, leveraging modern programming technologies including Rust, Go, TypeScript, and Flutter.',
-      'Throughout his career, Sunday has demonstrated exceptional capacity for translating complex business and operational requirements into secure, scalable, and commercially viable technology solutions. He has provided strategic technology leadership across organisations, driving digital transformation, enterprise systems integration, infrastructure development, and cybersecurity initiatives. As a technology entrepreneur and co-founder, he has also led the conceptualisation, architecture, development, and deployment of production-grade technology platforms, including real-time telemetry, digital identity verification, and automated workflow management systems.',
-      'His professional experience further encompasses senior IT infrastructure and enterprise systems management roles within the telecommunications, hospitality, and technology consulting sectors. In these capacities, he has overseen mission-critical network infrastructure, enterprise security environments, Active Directory administration, ERP systems, database operations, and corporate communications infrastructure, supporting the technology requirements of major corporate organisations.',
-      'An Oracle Certified Associate (OCA) and a Computer Science graduate with an outstanding academic record, Sunday combines a strong technical and academic foundation with extensive practical experience in enterprise technology management and software development. His multidisciplinary capabilities, spanning executive-level technology governance and hands-on engineering execution, position him to provide effective leadership in the development and management of sophisticated digital financial infrastructures.',
-      'His expertise is particularly valuable in ensuring that digital asset platforms, investor onboarding systems, transaction processing infrastructure, and enterprise data environments are designed and operated in accordance with international best practices for information security, regulatory compliance, operational resilience, and technological innovation.',
+      'Sunday Agbo is a distinguished technology executive, enterprise systems architect, and full-stack software engineer with over 15 years of experience in technology leadership, financial technology, enterprise infrastructure, and cybersecurity.',
+      'He specialises in digital asset infrastructure, enterprise systems architecture, financial-grade software development, transaction processing systems, and information security governance. His technical expertise spans modern programming technologies, including Rust, Go, TypeScript, and Flutter.',
+      'Throughout his career, he has led technology strategy, digital transformation, and the development of secure, scalable enterprise solutions across multiple industries. As a technology entrepreneur and co-founder, he has also spearheaded the design and deployment of innovative digital platforms.',
+      'An Oracle Certified Associate (OCA) and Computer Science graduate with an outstanding academic record, Sunday combines strategic technology leadership with hands-on engineering expertise, positioning him to drive innovation and operational excellence in digital financial infrastructure.',
     ],
+  },
+  {
+    id: 'Okechukwu Ebulu',
+    name: 'Okechukwu Ebulu',
+    role: 'Head of Digital Asset Trading',
+
+    hasPhoto: true,
+      bio: [
+      'Okechukwu is an accomplished investment professional and virtual asset trader with over 18 years of experience spanning commercial and corporate banking, structured finance, shipping and logistics operations, and digital asset markets.',
+      'He began his career in commercial and corporate banking, where he developed expertise in structured finance solutions and financial services. He subsequently transitioned into shipping and logistics, gaining valuable industry experience and an understanding of global commodities markets, market cycles, and physical supply chains.',
+      'His current practice focuses on virtual asset trading and multi-asset investment strategies, with specialization in both systematic and discretionary trading of cryptocurrencies and related financial instruments. He also develops diversified investment portfolios that bridge traditional financial markets and digital assets. His investment philosophy is anchored in disciplined execution, robust risk management, portfolio diversification, and capital preservation, with a strategic focus on navigating market cycles and delivering sustainable investment performance.',
+    ],
+
   },
 ];
 ---
@@ -95,7 +107,7 @@ const teamMembers = [
                 {member.hasPhoto ? (
                   <Image
                     src={
-                      member.id == 'John Sani Agbo.' ? johnPhoto : sundayPhoto
+                      member.id == 'John Sani Agbo.' ? johnPhoto : member.id =='Sunday Felicity Agbo'? sundayPhoto: okechukwuPhoto
                     }
                     alt={member.name}
                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
